@@ -1,0 +1,1414 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>计算机网络 - TongYiheng&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="TongYiheng&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="TongYiheng&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="How to build a network?"><meta property="og:type" content="blog"><meta property="og:title" content="计算机网络"><meta property="og:url" content="https://tongyiheng.github.io/2021/06/13/CS/ComputerNetworks/"><meta property="og:site_name" content="TongYiheng&#039;s Blog"><meta property="og:description" content="How to build a network?"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://tongyiheng.github.io/images/cover/ComputerNetworks.jpg"><meta property="article:published_time" content="2021-06-13T02:18:35.000Z"><meta property="article:modified_time" content="2021-09-15T08:35:57.642Z"><meta property="article:author" content="TongYiheng"><meta property="article:tag" content="Computer Networks"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/images/cover/ComputerNetworks.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://tongyiheng.github.io/2021/06/13/CS/ComputerNetworks/"},"headline":"计算机网络","image":["https://tongyiheng.github.io/images/cover/ComputerNetworks.jpg"],"datePublished":"2021-06-13T02:18:35.000Z","dateModified":"2021-09-15T08:35:57.642Z","author":{"@type":"Person","name":"TongYiheng"},"description":"How to build a network?"}</script><link rel="canonical" href="https://tongyiheng.github.io/2021/06/13/CS/ComputerNetworks/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="TongYiheng's Blog" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="TongYiheng&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/TongYiheng/TongYiheng.github.io"><i class="fab fa-github"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Email" href="mailto:yihengtong@outlook.com"><i class="fa fa-envelope"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/images/cover/ComputerNetworks.jpg" alt="计算机网络"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-06-13T02:18:35.000Z" title="2021-6-13 10:18:35 ├F10: AM┤">2021-06-13</time>发表</span><span class="level-item"><time dateTime="2021-09-15T08:35:57.642Z" title="2021-9-15 4:35:57 ├F10: PM┤">2021-09-15</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Computer-Science/">Computer Science</a></span><span class="level-item">2 小时读完 (大约17394个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">计算机网络</h1><div class="content"><p>How to build a network?</p>
+<span id="more"></span>
+<h1 id="computer-networks"><a class="markdownIt-Anchor" href="#computer-networks"></a> Computer Networks</h1>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi>M</mi><mi>b</mi><mi>p</mi><mi>s</mi><mo>=</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup><mi>b</mi><mi>p</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">1Mbps=10^{6}bps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span></span></span></span><br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi>G</mi><mi>b</mi><mi>p</mi><mi>s</mi><mo>=</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mi>b</mi><mi>p</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">1Gbps=10^{9}bps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord mathdefault">G</span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span></span></span></span></p>
+<h2 id="第一章引言"><a class="markdownIt-Anchor" href="#第一章引言"></a> 第一章：引言</h2>
+<h3 id="11-名词解释"><a class="markdownIt-Anchor" href="#11-名词解释"></a> 1.1 名词解释</h3>
+<ul>
+<li>计算机网络：一组通过单一技术相互连接的自主计算机集合。</li>
+<li><strong>VPN</strong>（Virtual Private Networks）：虚拟专用网络。</li>
+<li>peer-to-peer：对等。</li>
+<li><mark>P2P：对等计算机网络，是一种在对等者（Peer）之间分配任务和工作负载的分布式应用架构，是对等计算模型在应用层形成的一种组网或网络形式。</mark></li>
+<li>RFID（Radio Frequency IDentification）：射频识别。</li>
+<li>hotspot：无线热点。</li>
+<li>GPS（Global Positioning System）：全球定位系统。</li>
+<li>NFC（Near Field Communication）：近场通信。</li>
+<li><strong>点到点</strong>，<strong>端到端</strong>。</li>
+<li>单播（unicasting）、<mark>广播（broadcasting）</mark>：同时给全部目标地址发送一个数据包、组播（multicasting）。</li>
+<li>PAN（Personal Area Network）：个域网</li>
+<li>LAN（Local Area Network）：局域网</li>
+<li>WIFI：无线局域网的一个标准 IEEE 802.11</li>
+<li>Ethernet：以太网 IEEE 802.3</li>
+<li>VLAN（Virtual LAN）：虚拟局域网</li>
+<li>MAN（Metropolitan Area Network）：城域网</li>
+<li>WAN（Wide Area Network）：广域网</li>
+<li>通信子网（subnet）、子网：子网的工作是把信息从一个主机携带到另一个主机。<br />
+子网由两个不同部分组成：传输线路（e.g. 铜线、光纤、无线）和交换元素（交换机、路由器）。</li>
+<li>ISP（Internet Service Provider）：Internet服务提供商。相应的子网称为ISP网络。</li>
+<li><mark>协议：通信双方就如何进行通信的一种约定。</mark></li>
+<li><strong>对等体</strong>：不同机器上构成相应层次的实体。</li>
+<li><strong>接口</strong>：定义了下层向上层提供哪些原语操作和服务。</li>
+<li><strong>网络体系结构</strong>：层和协议的集合。</li>
+<li><strong>协议栈</strong>：一个特定的系统所使用的一组协议，即每一层一个协议。</li>
+<li>统计复用：许多网络设计根据主机的短期需求变化动态共享网络带宽，而不是给每个主机分配可能用也可能不会用的固定比例带宽。</li>
+<li>流量控制：保持快速发送方不会用数据把慢速接收方淹没。</li>
+<li>拥塞：太多的计算机需要发送太多的流量，而网络没有能力传递所有的数据包。</li>
+<li><strong>面向连接的服务</strong>：按照电话系统建模。</li>
+<li><strong>无连接服务</strong>：按照邮政系统建模。</li>
+<li><strong>存储-转发交换</strong>：中间节点只能在收到报文的全部内容后再将该报文发送给下一个节点。</li>
+<li><strong>直通式交换</strong>：报文还未全部接受完毕之前就向下一个节点传输。</li>
+<li><mark>DNS（Domain Name System）：域名系统，将主机名字映射到网络地址。</mark></li>
+<li>ISO（International Standards Organization）：国际标准化组织。</li>
+<li>OSI（Open Systems Interconnection）：开放系统互连。</li>
+<li>物理层：关注在一条通信信道上传输原始比特。</li>
+<li>数据链路层：将一个原始的传输设施转变成一条没有漏检传输错误的线路。</li>
+<li>网络层：控制子网的运行。关注如何将数据报从源端路由到接收方。</li>
+<li>传输层：接收来自上一层的数据，在必要的时候把这些数据分割成较小的单元，然后把这些数据单元传递给网络层，并且确保这些数据单元正确地到达另一端。</li>
+<li>IP（Internet Protocol）：因特网协议。</li>
+<li>ICMP（Internet Control Message Protocol）：因特网控制报文协议。</li>
+<li>TCP（Transport Control Protocol）：传输控制协议，可靠的、面向连接的。</li>
+<li>UDP（User Datagram Protocol）：用户数据报协议，不可靠的、无连接的。</li>
+<li>DSL（Digital Subscriber Line）：数字用户线。</li>
+<li>modem ：调制解调器。</li>
+<li>CMTS（Cable Modem Termination System）：线缆调制解调终端系统。</li>
+<li>宽带（broadband）：以高于拨号速率（56kbps）接入Internet。<mark>IEEE 802.16</mark></li>
+<li>FTTH（Fiber to the Home）：光纤到户。</li>
+<li>POP（Point of Presence）：ISP存点，客户数据报进入ISP网络使用其服务的位置。</li>
+<li>IXP（Internet eXchange Point）：Internet交换点。相互连接的ISP被认为彼此对等。</li>
+<li>AMPS（Advanced Mobile Phone System）：高级移动电话系统。 1G</li>
+<li>GSM（Global System for Mobile communications）：全球移动通信系统。 2G</li>
+<li>UMTS（Universal Mobile Telecommunications System）：通用移动通信系统。 3G</li>
+<li>CDMA（Code Division Multiple Access）：码分多址。</li>
+<li>WCDMA（Wideband Code Division Multiple Access）：宽带码分多址。</li>
+<li>GPRS（General Packet Radio Service）：通用数据报无线业务。</li>
+<li>软切换（soft handover）–硬切换（hard handover）</li>
+<li>SIM（Subscriber Identity Module）：用户识别模块。</li>
+<li>ISM（Industral Scientific and Medical）：工业科学医疗频段。</li>
+<li>AP（Access Point）：接入点。</li>
+<li>OFDM（Orthogonal Frequency Division Multiplexing）：正交频分复用。</li>
+<li>CSMA（Carrier Sense Multiple Access）：载波侦听多路访问。</li>
+<li>WPA（WiFi Protected Access）：WiFi保护接入。</li>
+</ul>
+<h2 id="第二章物理层"><a class="markdownIt-Anchor" href="#第二章物理层"></a> 第二章：物理层</h2>
+<h3 id="21-数据通信的理论基础"><a class="markdownIt-Anchor" href="#21-数据通信的理论基础"></a> 2.1 数据通信的理论基础</h3>
+<h4 id="211-傅里叶分析"><a class="markdownIt-Anchor" href="#211-傅里叶分析"></a> 2.1.1 傅里叶分析</h4>
+<h4 id="212-带宽有限的信号"><a class="markdownIt-Anchor" href="#212-带宽有限的信号"></a> 2.1.2 带宽有限的信号</h4>
+<ul>
+<li>带宽：<mark>在传输过程中振幅不会明显减弱的频率的宽度</mark> or <mark>单位时间内可以传递的数据位数</mark></li>
+<li>带宽是传输介质的一种物理特性，通常取决于介质的构成、厚度和电线或者光纤的长度。</li>
+<li>一般将从0到某个最大频率的信号称为基带信号，将被搬移并占用某个更大频率范围的信号称为通带信号。</li>
+</ul>
+<h4 id="213-信道的最大数据速率"><a class="markdownIt-Anchor" href="#213-信道的最大数据速率"></a> 2.1.3 信道的最大数据速率</h4>
+<ul>
+<li>
+<p><mark>尼奎斯特定理</mark></p>
+<ul>
+<li>在<strong>无噪声信道</strong>中，如果物理带宽为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> ，信号离散度等级为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span> ，则该信道最大数据速率 （数字带宽）= <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>B</mi><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi>V</mi><mtext> </mtext><mi>b</mi><mi>p</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">2B log_{2}V \ bps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace"> </span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span></span></span></span> ，计算后还要乘每秒采样数。</li>
+<li>任意一个信号的通过一个物理带宽为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> 的低通滤波器只要进行每秒 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>B</mi></mrow><annotation encoding="application/x-tex">2B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> 次的采样就可完全重构出被滤掉的信号。</li>
+<li>信道一定，物理带宽确定时，要提高数字带宽只有<strong>增加离散等级</strong>。</li>
+</ul>
+</li>
+<li>
+<p><mark>香农定理</mark></p>
+<ul>
+<li>在<strong>有噪声信道</strong>中，如果物理带宽为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> ，信噪比为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi mathvariant="normal">/</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">S/N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> ，则该信道最大数据速率 （数字带宽）= <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>S</mi><mi mathvariant="normal">/</mi><mi>N</mi><mo stretchy="false">)</mo><mtext> </mtext><mi>b</mi><mi>p</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">B log_{2}(1+S/N) \ bps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span><span class="mspace"> </span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span></span></span></span> 。</li>
+<li>分贝值 = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>10</mn></msub><mi>S</mi><mi mathvariant="normal">/</mi><mi>N</mi><mtext> </mtext><mi>d</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">10log_{10}S/N \ dB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace"> </span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span></li>
+<li>信道一定，物理带宽确定时，要提高数字带宽只有<strong>增加信噪比</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-引导性传输介质"><a class="markdownIt-Anchor" href="#22-引导性传输介质"></a> 2.2 引导性传输介质</h3>
+<ul>
+<li>全双工（full-deplex）：可以双向同时使用的链路。</li>
+<li>半双工（half-deplex）：可以双向使用但是一次只能使用一个方向的链路。</li>
+<li>单双工（simplex）：只允许一个方向上的传输的链路。</li>
+</ul>
+<h3 id="23-无线传输"><a class="markdownIt-Anchor" href="#23-无线传输"></a> 2.3 无线传输</h3>
+<h3 id="24-通信卫星"><a class="markdownIt-Anchor" href="#24-通信卫星"></a> 2.4 通信卫星</h3>
+<h3 id="25-数字调制与多路复用"><a class="markdownIt-Anchor" href="#25-数字调制与多路复用"></a> 2.5 数字调制与多路复用</h3>
+<ul>
+<li><mark>多路复用</mark>：信道被多个信号共享。</li>
+<li>基带传输：信号的传输占有传输介质上从零到最大值之间的全部频率。</li>
+<li>通带传输：信号占据了以载波信号频率为中心的一段频带。</li>
+</ul>
+<h4 id="251-基带传输"><a class="markdownIt-Anchor" href="#251-基带传输"></a> 2.5.1 基带传输</h4>
+<ul>
+<li>NRZ（Non-Return-to-Zero）：不归零。</li>
+<li><mark>曼彻斯特编码</mark>
+<ul>
+<li>从低到高：逻辑0</li>
+<li>从高到低：逻辑1</li>
+<li>需要两倍于NRZ编码的带宽。</li>
+<li>每一位的中间有一跳变，位中间的跳变既作时钟信号，又作数据信号。</li>
+</ul>
+</li>
+<li><mark>差分曼彻斯特编码</mark>
+<ul>
+<li>每位中间的跳变仅提供时钟定时。</li>
+<li>第一个信号：如果中间位电平从低到高，则表示0；如果中间位电平从高到低，则表示1。</li>
+<li>从第二个信号开始，每位开始时有无跳变表示&quot;0&quot;或&quot;1&quot;，有跳变为&quot;0&quot;，无跳变为&quot;1&quot;。</li>
+</ul>
+</li>
+<li>NRZI（Non-Return-to-Zero Inverted）：不归零逆转
+<ul>
+<li>信号有跳变：1</li>
+<li>信号无跳变：0</li>
+</ul>
+</li>
+<li>4B/5B
+<ul>
+<li>4个比特被映射为5个比特</li>
+<li>保证永远不会出现连续三个0</li>
+</ul>
+</li>
+<li>双极编码
+<ul>
+<li>使用两个电压级别表示逻辑1</li>
+<li>发送1时在+1V和-1V之间进行选择</li>
+</ul>
+</li>
+</ul>
+<h4 id="252-通带传输"><a class="markdownIt-Anchor" href="#252-通带传输"></a> 2.5.2 通带传输</h4>
+<ul>
+<li>ASK（Amplitude Shift Keying）：幅移键控。通过两个不同的振幅表示0和1。</li>
+<li>FSK（Frequency Shift Keying）：频移键控。通过两个不同的频率表示0和1。
+<ul>
+<li>最简单的形式是相移键控（PSK，Phase Shift Keying）。</li>
+<li>二进制相移键控（BPSK，Binary Phase Shift Keying）：载波波形偏移0°或180°。</li>
+<li>正交相移键控（QPSK，Quadrature Phase Shift Keying）：4个偏移，45°、135°、225°、315°。</li>
+</ul>
+</li>
+</ul>
+<h4 id="253-频分复用"><a class="markdownIt-Anchor" href="#253-频分复用"></a> 2.5.3 频分复用</h4>
+<ul>
+<li>FDM：Frequency Division Multiplexing</li>
+<li>保护带（guardband）：使信道之间完全隔离。</li>
+<li>OFDM（Orthogonal Frequency Division Multiplexing）：正交频分复用。</li>
+</ul>
+<h4 id="254-时分复用"><a class="markdownIt-Anchor" href="#254-时分复用"></a> 2.5.4 时分复用</h4>
+<ul>
+<li>TDM：Time Division Multiplexing</li>
+<li>每个用户周期性获得整个带宽非常短的一个时间。</li>
+<li>要求时间上必须同步，各用户需要的带宽不均衡，而TDW用户时间片的使用却是一样的，将造成信道的浪费，不高效。</li>
+</ul>
+<h4 id="255-码分复用"><a class="markdownIt-Anchor" href="#255-码分复用"></a> 2.5.5 码分复用</h4>
+<ul>
+<li>CDMA：Code Division Multiple Access</li>
+<li>允许每个站利用整个频段发送信号，没有时间限制。</li>
+<li>可以将TDM看作许多人按顺序交谈，将FDM看作不用人按不同语调交谈，CDMA则是每对交谈者使用不用的语言。</li>
+<li>CDMA关键在于能够提取出需要的信号，同时拒绝所有其他的信号并把这些信号当作噪声。</li>
+</ul>
+<h3 id="26-公共电话交换网络"><a class="markdownIt-Anchor" href="#26-公共电话交换网络"></a> 2.6 公共电话交换网络</h3>
+<ul>
+<li>
+<p>本地回路(Local loops)：模拟线路，连接端局和千家万户，通常用三类双绞线承担。</p>
+</li>
+<li>
+<p>干线、中继线(Trunks)：数字光纤，连接交换局。</p>
+</li>
+<li>
+<p>交换局(Switching offices)：语音接驳干线的场所，包括端局。</p>
+</li>
+<li>
+<p>56k（64k）的调制解调器：V.90标准电话线路频率为4kHz，采样率 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>2</mn><mo>×</mo><mn>4000</mn><mo>=</mo><mn>8000</mn><mi>s</mi><mi>a</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi mathvariant="normal">/</mi><mi>s</mi><mi>e</mi><mi>c</mi></mrow><annotation encoding="application/x-tex">=2×4000=8000sample/sec</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">8</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord mathdefault">s</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord">/</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span></span></span></span> ，每个码元传输8bit，其中1个比特控制错误，故传输数据速率 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mn>8000</mn><mo>×</mo><mn>7</mn><mo>=</mo><mn>56000</mn><mi>k</mi><mi>b</mi><mi>p</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">=8000×7=56000kbps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mord">6</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span></span></span></span>，若算上控制错误的比特，毛速率为64kbps。</p>
+</li>
+<li>
+<p><mark>ADSL（Asymmetric Digital Subscriber Lines）： 非对称数字用户线。</mark></p>
+</li>
+<li>
+<p>连接调制解调器的本地回路带宽，被限制为4k，因为电话占频为4k；xDSL取消了电话系统里的滤波器后，可使用本地回路的全部（1.1兆）物理带宽。</p>
+</li>
+<li>
+<p>使用<strong>离散多音</strong>（DMT，Discrete MultiTone）调制方法的ADSL操作：</p>
+<ul>
+<li>1.1MHz的频谱，分为256根信道，每根4kHz（4312.5Hz）。信道0用于简单老式电话服务（POTS），信道1~5空闲， 剩下250条信道中，一条用于上行流控制，一条用于下行流控制，剩余248条信道用于数据传输（一种常见的分法是32条用于上行数据流）。</li>
+<li>每条信道内使用QAM调制方案，速率约为4000符号/秒。</li>
+<li>QAM-64每个符号传输6bits。</li>
+<li>1999年设定国际标准G.dmt，下行速度8Mbps，上行速度1Mbps。</li>
+</ul>
+</li>
+<li>
+<p>DSLAM（Digital Subscriber Line Access Multiplexer）：数字用户线路接入复用器。</p>
+</li>
+<li>
+<p>NID（Network Interface Device）：网络接口设备。</p>
+</li>
+<li>
+<p>光纤入户（FttH）:</p>
+<ul>
+<li>PON（Passive Optical Network）：无源光网络。</li>
+<li>下行流：光分离器 。上行流：光合并器。</li>
+</ul>
+</li>
+<li>
+<p>脉冲编码调制：PCM，Pulse Code Modulation</p>
+<ul>
+<li>模拟信号数字化的技术。构成了现代PSTN的核心。</li>
+<li>采样、量化、编码、传输。</li>
+<li>每125微秒发送一个语音样值，该采样率足以捕捉4kHz电话信道带宽上的信息。</li>
+</ul>
+</li>
+<li>
+<p>时分多路复用TDM</p>
+<ul>
+<li><strong>T1载波</strong>（北美和日本），24路。</li>
+<li>每帧24×8=192个比特，加上控制用的一个比特的帧码，每125微秒产生193个比特，即<strong>数据传输率为193bits/0.000125s=1.544Mbps</strong>，<strong>8kbps</strong>用于信令控制。</li>
+<li>每个样值中每个信道有7个数据比特，故1帧中包含的数据为<strong>24×7=168bits</strong>。</li>
+<li>E1载波（中国），32路语音的复用<br />
+每125微秒传递32*8=256个比特，即<strong>数据传输率为256bits/0.000125s=2.048Mbps</strong></li>
+<li>TDM允许更高级别的复用，比如4条T1流复用为1条T2流，7条T2流复用为1条T3流（每一步复用有少量开销用于同步控制、成帧）</li>
+</ul>
+</li>
+<li>
+<p><strong>SONET/SDH</strong>：光介质上进行同步数据传输的标准</p>
+<ul>
+<li>SONET（Synchronous Optical NETwork）：同步光网络，美国ANSIS制定。</li>
+<li>SDH（Synchronous Digital Hierarchy）：同步数字序列，国际标准组织ITU制定。</li>
+<li>每隔125微秒发送810字节数据块，SONET是同步系统故不管是否有用该帧都被发送出去，<strong>总的传输速率为51.84Mbps</strong>。</li>
+<li>9行，90列，有效载荷（SPE）为87列，共 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>87</mn><mo>×</mo><mn>9</mn><mo>×</mo><mn>8</mn><mi>b</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo>×</mo><mn>8000</mn><mi>s</mi><mi>a</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi mathvariant="normal">/</mi><mi>s</mi><mi>e</mi><mi>c</mi><mo>=</mo><mn>50.112</mn><mi>M</mi><mi>b</mi><mi>p</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">87×9×8bits×8000sample/sec=50.112Mbps</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">9</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord">8</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">8</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord mathdefault">s</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mord">/</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span></span></span></span> 。</li>
+<li>SPE第一列是路径开销，因此用户数据为86列。</li>
+<li>每帧前三列，保留用作传输系统管理信息。
+<ul>
+<li>前三列的前三行包含section开销。</li>
+<li>前三列的后六行包含line开销，其中前两个字节包含了指向SPE首地址的指针。</li>
+</ul>
+</li>
+<li>源端正在构造SONET空帧时来了一个有效载荷数据，它可直接半途插入到当前构造的帧中，比如下图，SPE就从第1个帧的半途开始，横跨了两个帧。</li>
+<li>对应于STS-n的光纤载波称为OC-n，其复用也是按比特进行的。</li>
+<li>如果一个载波（比如OC-3）没有被复用，而是仅承载了来自单个源的数据，则在线路名称后面加一个字母c（表示级联），因此OC-3表示由三条独立的OC-1载波构成的一条155.52Mbps载波，而OC-3c则表示来自于单个源的155.52Mbps数据流。</li>
+</ul>
+</li>
+<li>
+<p>波分多路复用WDM</p>
+<ul>
+<li>WDM，Wavelength Division Multiplexing</li>
+<li>波长λ，c=λf</li>
+<li>按照波长分成若干份，承载不同用户的光信号。</li>
+</ul>
+</li>
+<li>
+<p><mark>交换</mark></p>
+<ul>
+<li>电路交换</li>
+<li>包交换</li>
+</ul>
+</li>
+</ul>
+<h2 id="第三章数据链路层"><a class="markdownIt-Anchor" href="#第三章数据链路层"></a> 第三章：数据链路层</h2>
+<h3 id="31-数据链路层的设计问题"><a class="markdownIt-Anchor" href="#31-数据链路层的设计问题"></a> 3.1 数据链路层的设计问题</h3>
+<ul>
+<li>无确认的无连接服务。 以太网</li>
+<li>有确认的无连接服务。WiFi。</li>
+<li>有确认的有连接服务。</li>
+<li>成帧：
+<ul>
+<li>字节计数法：每帧开始使以一个计数字段表示该帧的总字符数。</li>
+<li>字节填充的标志字节法：
+<ul>
+<li>以某些特殊字符作帧的开始/结束标志，同时增加转义环节以免该字符无法表达。</li>
+<li>缺点：容易造成帧界混淆（故增加转义字节），<strong>依赖8位字符</strong>。</li>
+</ul>
+</li>
+<li>比特填充的标志比特法：
+<ul>
+<li>用特殊的位模式<code>01111110</code>作为帧标志，即一个帧的开始（前一个帧的结束）</li>
+<li>且为了处理帧内容中出现一个和帧标志相同的位串<code>01111110</code>。发送方一般在5个1后插入1个0，变为<code>01111101</code>。接收方自动删除第5个1后的0。</li>
+<li>优点：可传输任意比特数的帧，传输速率更高。</li>
+</ul>
+</li>
+<li>物理层编码违禁法：
+<ul>
+<li>在物理层的线路编码方法里头，有一些冗余信号是不会出现在传输数据里的，以其作帧界。</li>
+<li>比如，在4B/5B编码中，4B被映射成5B传输，32个模式，只用到16个，剩下的可以用作帧界。</li>
+<li>比如，曼彻斯特编码，高电位跳变到低电位表示”1”，相反表示”0”。所以有两个跳变（高-&gt;高，低-&gt;低），两个冗余的跳变是没有使用的，也可拿作帧界。好处是使用冗余信号，不会混淆也不需要填充，故传输速率高。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-差错检测和纠正"><a class="markdownIt-Anchor" href="#32-差错检测和纠正"></a> 3.2 差错检测和纠正</h3>
+<ul>
+<li>码字：包含数据位和校验位的n位单元（n=m+r）。</li>
+<li>码率：码字中不包含冗余部分所占的比例，m/n。</li>
+<li>海明距离：两个码字中不相同的位的个数。</li>
+<li>意义：如果两个码字的海明距离为d，则需要d个1位错误才能将一个码字转变成另一个码字。</li>
+<li>海明码，见计组和数字逻辑。</li>
+<li><mark>循环冗余校验码（CRC）：</mark>
+<ul>
+<li>任何一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span>位的帧，可以看做一个<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>次的多项式。如1011001，看做<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mn>6</mn></msub><mo>+</mo><msub><mi>x</mi><mn>4</mn></msub><mo>+</mo><msub><mi>x</mi><mn>3</mn></msub><mo>+</mo><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">x_6+x_4+x_3+x_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.73333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（6阶7项多项式）</li>
+<li>约定一个<strong>生成多项式</strong>（Generator Polynomial）：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">G</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>，阶数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>，项数为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
+<li>现在有一个要计算CRC的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>位帧的多项式<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">M(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mo>&gt;</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">m&gt;r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">M(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>比<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">G</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>长。</li>
+<li>在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">M(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>后附上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>个0，成为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mi>r</mi><mi>M</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">xrM(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mi>r</mi><mi>M</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>Q</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>R</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">xrM(x)/G(x)=Q(x)+R(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathdefault">G</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">Q</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">Q</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>为商、<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>为余数，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mi>r</mi><mi>M</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>−</mo><mi>R</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">xrM(x)-R(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">x</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>一定能被<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">G</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>整除。</li>
+</ul>
+</li>
+</ul>
+<h3 id="33-基本数据链路层协议"><a class="markdownIt-Anchor" href="#33-基本数据链路层协议"></a> 3.3 基本数据链路层协议</h3>
+<h3 id="34-滑动窗口协议"><a class="markdownIt-Anchor" href="#34-滑动窗口协议"></a> 3.4 滑动窗口协议</h3>
+<ul>
+<li><mark>发送窗口、接收窗口</mark>
+<ul>
+<li>含义：允许发送的帧、允许接收的帧。</li>
+<li>如何移动：
+<ul>
+<li>发送窗口：任何时候当有新的数据包从网络层到来时，它被赋予窗口的下一个最高序号，并且窗口的上边界前移一格。当收到一个确认时，窗口的下边界也前移一格。</li>
+<li>接收窗口：任何落在窗口内的帧被放入接收方的缓冲区。当收到一个帧，而且其序号等于窗口下边界时，接收方将它传递给网络层，并将整个窗口向前移动1个位置。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><mark>回退N协议</mark>：当位于某个数据流中间的一个帧损坏或丢失，接收方丢弃所有到达的后序帧，而且针对这些丢弃的帧不返回确认。</li>
+<li><mark>选择重传协议</mark>：当位于某个数据流中间的一个帧损坏或丢失，接收方将收到的坏帧丢弃，但接收并缓存坏帧后面的所有好帧。当发送方超时，只重传那个最早的未被确认的帧。</li>
+</ul>
+<h2 id="第四章介质访问控制子层"><a class="markdownIt-Anchor" href="#第四章介质访问控制子层"></a> 第四章：介质访问控制子层</h2>
+<ul>
+<li><mark>介质访问控制子层（MAC, Medium Access Control）</mark>：用来确定多路访问信道下一个使用者的协议，属于数据链路层的一个子层。</li>
+<li>MAC子层位于数据链路层底部。</li>
+</ul>
+<h3 id="41-信道分配问题"><a class="markdownIt-Anchor" href="#41-信道分配问题"></a> 4.1 信道分配问题</h3>
+<h3 id="42-多路访问协议"><a class="markdownIt-Anchor" href="#42-多路访问协议"></a> 4.2 多路访问协议</h3>
+<h4 id="421-aloha"><a class="markdownIt-Anchor" href="#421-aloha"></a> 4.2.1 ALOHA</h4>
+<ul>
+<li>纯ALOHA
+<ul>
+<li>任何一个工作站都可以在帧生成后立即发送，并通过信号的反馈检测信道以判断是否发送成功。冲突则随机等待后重发。</li>
+<li>即任性，想发就发。</li>
+<li>生成k帧的概率服从泊松分布： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>r</mi><mo stretchy="false">[</mo><mi>k</mi><mo stretchy="false">]</mo><mo>=</mo><msup><mi>G</mi><mi>k</mi></msup><msup><mi>e</mi><mrow><mo>−</mo><mi>G</mi></mrow></msup><mi mathvariant="normal">/</mi><mi>k</mi><mo stretchy="false">!</mo></mrow><annotation encoding="application/x-tex">Pr[k]=G^ke^{-G}/k!</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">!</span></span></span></span> 例如生成0帧的概率是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mi>r</mi><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo><mo>=</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>G</mi></mrow></msup></mrow><annotation encoding="application/x-tex">Pr[0]=e^{-G}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span></span></span></span> 。</li>
+<li>在2t时间内，发送成功的概率应为，2t内都不才产生新帧的概率： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>0</mn><mo>=</mo><mi>P</mi><mi>r</mi><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo><mo>×</mo><mi>P</mi><mi>r</mi><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo><mo>=</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>G</mi></mrow></msup></mrow><annotation encoding="application/x-tex">P0=Pr[0]×Pr[0]=e^{-2G}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span></span></span></span> 。</li>
+<li>将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>0</mn><mo>=</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>G</mi></mrow></msup></mrow><annotation encoding="application/x-tex">P0=e^{-2G}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span></span></span></span> 代入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>G</mi><mo>×</mo><mi>P</mi><mn>0</mn></mrow><annotation encoding="application/x-tex">S=G×P0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">0</span></span></span></span> ，得 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>G</mi><mo>×</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>G</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S=G×e^{-2G}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span></span></span></span> 。</li>
+<li>求导求吞吐率S的极大值： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>S</mi><mo mathvariant="normal">′</mo></msup><mo>=</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>G</mi></mrow></msup><mo>−</mo><mn>2</mn><mi>G</mi><mo>×</mo><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>G</mi></mrow></msup><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">S&#x27;=e^{-2G}-2G×e^{-2G}=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.924661em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> ，故当  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi><mo>=</mo><mn>0.5</mn></mrow><annotation encoding="application/x-tex">G=0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">5</span></span></span></span> 时，  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>≈</mo><mn>0.184</mn></mrow><annotation encoding="application/x-tex">S≈0.184</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span><span class="mord">8</span><span class="mord">4</span></span></span></span> 。</li>
+<li>即，纯ALOHA信道的利用率最高为18.4%。</li>
+</ul>
+</li>
+<li>分槽ALOHA
+<ul>
+<li>把时间分成时隙（时间片），时隙 = 帧时T（较纯ALOHA降低一半）</li>
+<li>发送帧必须在时隙的起点，所以冲突值发生在时隙的起点</li>
+<li>冲突危险期缩短为T，一旦某个站占用某个时隙并发送成功，则在该时隙内不会出现冲突</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mn>0</mn><mo>=</mo><mi>P</mi><mo stretchy="false">[</mo><mn>0</mn><mo stretchy="false">]</mo><mo>=</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>G</mi></mrow></msup></mrow><annotation encoding="application/x-tex">P0=P[0]=e^{-G}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mopen">[</span><span class="mord">0</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span></span></span></span>， <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>G</mi><mo>×</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>G</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S=G×e^{-G}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">G</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathdefault mtight">G</span></span></span></span></span></span></span></span></span></span></span></span></li>
+<li>在G=1时取得最大吞吐率： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>m</mi><mi>a</mi><mi>x</mi><mo>=</mo><mn>1</mn><mi>e</mi><mo>≈</mo><mn>0.368</mn></mrow><annotation encoding="application/x-tex">Smax=1e≈0.368</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">m</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">3</span><span class="mord">6</span><span class="mord">8</span></span></span></span></li>
+<li>即，分隙ALOHA信道的利用率最高为36.8%。</li>
+</ul>
+</li>
+</ul>
+<h4 id="422-载波侦听多路访问协议"><a class="markdownIt-Anchor" href="#422-载波侦听多路访问协议"></a> 4.2.2 载波侦听多路访问协议</h4>
+<ul>
+<li>
+<p>载波侦听多路访问协议（CSMA，Carrier Sense Multiple Access），改进的ALOHA协议。特点：先听后发。</p>
+</li>
+<li>
+<p>非坚持CSMA</p>
+<ul>
+<li>概念：发送数据之前先侦听信道，若信道空闲，则发送帧；若信道忙碌，则等待一段随机时间后再侦听。</li>
+<li>缺点：随机等待时间内介质上没有数据传送，这段时间被浪费，带来更大的延迟。</li>
+<li>优点：更好的信道利用率。</li>
+</ul>
+</li>
+<li>
+<p>持续式CSMA</p>
+<ul>
+<li>分为：1-坚持CSMA、P-坚持CSMA</li>
+<li>P-坚持CSMA（适用于分时间槽的信道）
+<ul>
+<li>发送数据之前先侦听信道，若信道空闲，则以P的概率发送，以1-P的概率延迟一个时间槽发送；若信道忙碌，则等待直至信道变成空闲。如果发生冲突，等待一段随机时间后再侦听。</li>
+</ul>
+</li>
+<li>1-坚持CSMA
+<ul>
+<li>发送数据之前先侦听信道，若信道空闲，则发送帧；若信道忙碌，则等待直至信道变成空闲。如果发生冲突，等待一段随机时间后再侦听。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CSMA仍然会冲突的原因</p>
+<ul>
+<li>同时侦听同时传送。</li>
+<li>传播延迟。信号在介质传播速度是光速的65%（每微秒200米），在信号未到达接收方的时候，接收方监听信道发现空闲，随后发帧，两帧碰撞冲突。</li>
+</ul>
+</li>
+<li>
+<p>冲突窗口</p>
+<ul>
+<li>冲突危险期：一个工作站能够检测到冲突的时间最大值。</li>
+<li>冲突窗口定义为上限：来回时间（RTT，Round Trip Time），2个帧时。</li>
+<li>信号在信道传播速度： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>V</mi><mo>=</mo><mn>200</mn><mi>m</mi><mi mathvariant="normal">/</mi><mi>u</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">V = 200m/us</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord mathdefault">m</span><span class="mord">/</span><span class="mord mathdefault">u</span><span class="mord mathdefault">s</span></span></span></span></li>
+<li>网卡处理帧的时间：网卡延时 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mrow><mi>P</mi><mi>H</mi><mi>Y</mi></mrow></msub></mrow><annotation encoding="application/x-tex">t_{PHY}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span><span class="mord mathdefault mtight" style="margin-right:0.22222em;">Y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+<li>最远的两个工作站相距： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span></li>
+<li>计算得到：冲突窗口 = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>t</mi><mo>+</mo><mn>2</mn><msub><mi>t</mi><mrow><mi>P</mi><mi>H</mi><mi>Y</mi></mrow></msub></mrow><annotation encoding="application/x-tex">2t+2t_{PHY}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="mord">2</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span><span class="mord mathdefault mtight" style="margin-right:0.22222em;">Y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mi>S</mi><mi>V</mi></mfrac></mrow><annotation encoding="application/x-tex">t=\frac{S}{V}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.22222em;">V</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">S</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 。</li>
+<li>倘若最远两个工作站间还有中继器，中继器处理时间：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi><mi>e</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow></msub></mrow><annotation encoding="application/x-tex">t_{repeater}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9011879999999999em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>，则冲突窗口 = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo stretchy="false">(</mo><mi>t</mi><mo>+</mo><msub><mi>t</mi><mrow><mi>P</mi><mi>H</mi><mi>Y</mi></mrow></msub><mo>+</mo><mi>N</mi><mo>×</mo><msub><mi>t</mi><mrow><mi>r</mi><mi>e</mi><mi>p</mi><mi>e</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>r</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">2(t+t_{PHY}+N×t_{repeater})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">P</span><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span><span class="mord mathdefault mtight" style="margin-right:0.22222em;">Y</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.28055599999999997em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mo>=</mo><mfrac><mi>S</mi><mi>V</mi></mfrac></mrow><annotation encoding="application/x-tex">t=\frac{S}{V}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.22222em;">V</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">S</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 。</li>
+<li>如果冲突发生在最远两个工作站的正中间，那么此时检测到冲突的时间等于最远两个工作站之间的传播延迟。</li>
+</ul>
+</li>
+<li>
+<p><mark>带冲突检测的载波侦听多路访问协议（CSMA/CD,CSMA with Collision Detection）</mark>，也是1-持续的CSMA。<strong>半双工以太网中使用。</strong></p>
+<ul>
+<li>工作原理
+<ul>
+<li>先听后发、边发边听。</li>
+<li>经侦听，若介质空闲，则发送；若介质忙碌，持续侦听至空闲；发送之后，持续侦听是否碰撞冲突，若不冲突则发送成功，若冲突则随机等待后再重复侦听。</li>
+<li>发送站感知冲突后，中断发送，之后发送一个非常简短的拥塞信号（Jam信号，是一个强化信号，广播出去通知各工作组该地方发生了碰撞）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>冲突检测和处理</p>
+<ul>
+<li>冲突检测的方法：比较发出和收到的两个信号的能量与脉冲宽度变化。</li>
+<li>冲突检测的要求：
+<ul>
+<li>时隙宽度 = 冲突窗口(最大冲突检测时间) ----&gt; 保证在一个时隙内能够检测到最远距离的冲突。</li>
+<li>发送有效帧的时间 &gt;= 冲突窗口 ----&gt; 防止因为在发生冲突时，已完成短帧发送而无法知道实际上已发送失败。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="423-无冲突协议"><a class="markdownIt-Anchor" href="#423-无冲突协议"></a> 4.2.3 无冲突协议</h4>
+<p>以根本不可能产生冲突的方式解决信道竞争问题。</p>
+<ul>
+<li>位图协议
+<ul>
+<li>假定有 N 个站，每个竞争期有 N 个槽。</li>
+<li>j 号站在 j 号槽中插入1位来声明自己有帧要发送。</li>
+<li>经过 N 个槽后，按照数字顺序开始传送数据。</li>
+<li>效率
+<ul>
+<li>低负载：每一帧的额外开销为 N 位，数据长度为 d 位，信道利用率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mi>d</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">d/(n+d)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mclose">)</span></span></span></span> 。</li>
+<li>高负载：若所有站在任何时候都有数据要发送，则 N 位竞争期被分摊到 N 个帧上，因此每一帧的额外开销只有1位，信道利用率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>d</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">d/(1+d)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord">/</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mclose">)</span></span></span></span> 。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>令牌传递
+<ul>
+<li>令牌代表发送权限。</li>
+<li>如果站有个等待传输的帧队列，当它接收到令牌就可以发送帧，然后再把令牌传递到下一站。</li>
+<li>如果站没有排队的帧要传，则只把令牌传递下去。</li>
+</ul>
+</li>
+<li>二进制倒计数
+<ul>
+<li>如果一个站想要使用信道，它就以二进制位串的形式广播自己的地址，从高序的位开始。</li>
+<li>假定所有的地址具有相同的长度。</li>
+<li>不同站地址中相同位在同时发送时被信道布尔或在一起。</li>
+<li>假设传输延迟可忽略。</li>
+<li>一个站只要看到自己的地址位中的0值被改写成了1，则它必须放弃竞争。</li>
+<li>特性：高序站的优先级比低序站的优先级高。</li>
+<li>信道利用率 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>d</mi><mo>+</mo><mi>l</mi><mi>o</mi><msub><mi>g</mi><mn>2</mn></msub><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">d/(d+log_2N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">d</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> ，如果精心设计帧格式，使得发送方的地址正好是帧内的第一个字段，信道利用率为100%。</li>
+</ul>
+</li>
+</ul>
+<h4 id="424-有限竞争协议"><a class="markdownIt-Anchor" href="#424-有限竞争协议"></a> 4.2.4 有限竞争协议</h4>
+<ul>
+<li>低负载下采用竞争的做法而提供较短的延迟，高负载下采用无冲突技术获得良好的信道效率。</li>
+</ul>
+<h4 id="425-无线局域网协议"><a class="markdownIt-Anchor" href="#425-无线局域网协议"></a> 4.2.5 无线局域网协议</h4>
+<ul>
+<li>隐藏终端问题：由于竞争者离得太远而导致站无法检测到潜在的竞争者。</li>
+<li>暴露终端问题：发送方监听到有一个传输正在进行，错误地得出结论不能开始将要进行的传输，而事实上将要进行的传输不会破坏正在进行的这个传输。</li>
+<li><mark>MACA（Multiple Access with Collision Avoidance）</mark>：冲突避免多路访问。
+<ul>
+<li>基本思想：发送方刺激接收方输出一个短帧，以便其附近的站能检测到这次传输，从而避免在接下去进行的（较大）数据帧传输中也发送数据。</li>
+<li>A首先给B发送一个RTS（Request to Send）帧，包含了随后将要发送的数据帧的长度。</li>
+<li>B用一个CTS（Clear to Send）作为应答，此CTS帧也包含了数据长度（从RTS）中复制过来。</li>
+<li>A收到CTS之后开始传输。</li>
+</ul>
+</li>
+</ul>
+<h3 id="43-以太网"><a class="markdownIt-Anchor" href="#43-以太网"></a> 4.3 以太网</h3>
+<ul>
+<li>经典以太网</li>
+<li>交换式以太网</li>
+</ul>
+<h4 id="431-经典以太网物理层"><a class="markdownIt-Anchor" href="#431-经典以太网物理层"></a> 4.3.1 经典以太网物理层</h4>
+<ul>
+<li>可以包含多个电缆段和多个中继器，但是不允许任意两个收发器之间的距离超过2.5km，并且任意两个收发器之间经过的中继器不能超过4个。</li>
+</ul>
+<h4 id="432-经典以太网mac子层协议"><a class="markdownIt-Anchor" href="#432-经典以太网mac子层协议"></a> 4.3.2 经典以太网MAC子层协议</h4>
+<ul>
+<li>SOF（Start of Frame）：帧起始定界符。</li>
+<li>LLC（Logical Link Control）：逻辑链路控制。</li>
+<li><strong>IEEE 802.3帧结构</strong>：
+<ul>
+<li>前导码+帧起始字段：8个Bytes，前7个Bytes都是10101010，最后一个字节10101011（最后一位是1表明帧的开始）。前导码的作用——表明一个帧的开始。
+<ul>
+<li>而在DIX以太网帧中，帧起始字段最后一位是0。</li>
+</ul>
+</li>
+<li>目的地址：6个Bytes（MAC地址，前24位为OUI表示某公司，后24位表序号）。</li>
+<li>源地址：6个Bytes（MAC地址，全球唯一，表示方法是’-‘、’:’、’.’配合16进制）。</li>
+<li>长度字段：表明帧长度（不包括前导码、但包括帧头帧尾），帧长度最小64字节最大1518字节。
+<ul>
+<li>而在DIX以太网帧中，该字段是类型字段，表明上层网络层是什么协议。</li>
+<li>如何区分是长度字段还是类型字段：判断大小，长度字段大小&lt;=1536(0x600)， 类型字段大小&gt;1536(0x600)。</li>
+</ul>
+</li>
+<li>数据字段：搭载了LLC的数据，长度最小是46字节，实际内容小于46则要填充到46，如此加上帧头帧尾的18字节再能保证整个帧至少64字节。</li>
+<li>校验字段：4个Bytes，CRC循环冗余校验，除了前导码+帧起始字段都被校验。</li>
+<li>有效帧长度至少64Bytes ★
+<ul>
+<li>CDMA/CD的要求：最短帧发送时间 &gt;= 冲突窗口 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2τ</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span></li>
+<li>以太网(802.3)规定，在10Mbps局域网中
+<ul>
+<li>时隙： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>τ</mi><mo>=</mo><mn>51.2</mn><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">2τ=51.2μs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord mathdefault">μ</span><span class="mord mathdefault">s</span></span></span></span></li>
+<li>最短帧长度： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn><mi>M</mi><mi>b</mi><mi>p</mi><mi>s</mi><mo>×</mo><mn>2</mn><mi>τ</mi><mi mathvariant="normal">/</mi><mn>8</mn><mo>=</mo><mn>64</mn><mi>B</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">10Mbps×2τ/8=64Bytes</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">b</span><span class="mord mathdefault">p</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span><span class="mord">/</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">6</span><span class="mord">4</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span></span></span></span> 或 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><mn>51200</mn><mi mathvariant="normal">/</mi><mn>100</mn><mi>n</mi><mi>s</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>8</mn><mo>=</mo><mn>64</mn><mi>B</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">(51200/100ns)/8=64Bytes</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">5</span><span class="mord">1</span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span><span class="mord">/</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord mathdefault">n</span><span class="mord mathdefault">s</span><span class="mclose">)</span><span class="mord">/</span><span class="mord">8</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord">6</span><span class="mord">4</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault">t</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span></span></span></span></li>
+</ul>
+</li>
+<li>为了更加容易区分有效帧和垃圾数据，以太网要求有效帧必须至少64字节。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><mark>二进制指数后退的CSMA/CD</mark>
+<ul>
+<li>冲突检测到后，时间被分成离散的时隙，时隙长度等于信号在介质上来回传输时间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>51.2</mn><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">51.2μs</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord mathdefault">μ</span><span class="mord mathdefault">s</span></span></span></span> 。一般地，第 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 次冲突后，等待的时间将从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> ~ <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^i-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.907994em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 之间随机选择一个数，然后等待这么多个时间槽。达到10次冲突后，随机数的选择区间被固定在最大值1023，以后不再增加。在16次冲突之后，控制器放弃努力，并给计算机返回一个失败报告。</li>
+<li>有效性
+<ul>
+<li>如果只有少量站发生冲突，则可确保较低的延迟。</li>
+<li>当许多站发生冲突时，可以保证在一个相对合理的时间间隔内解决冲突。将延迟后退的步子截断在1023​可避免延迟增长的太大。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="433-以太网性能"><a class="markdownIt-Anchor" href="#433-以太网性能"></a> 4.3.3 以太网性能</h4>
+<h4 id="434-交换式以太网"><a class="markdownIt-Anchor" href="#434-交换式以太网"></a> 4.3.4 交换式以太网</h4>
+<ul>
+<li>集线器</li>
+<li>交换机</li>
+</ul>
+<h4 id="435-快速以太网"><a class="markdownIt-Anchor" href="#435-快速以太网"></a> 4.3.5 快速以太网</h4>
+<ul>
+<li>快速以太网（100M以太网——IEEE802.3u）
+<ul>
+<li>要求：跟10M以太网兼容</li>
+<li>基本思想：保留原有的帧格式、接口和过程规则</li>
+<li>比特时间：100ns -&gt; 10ns</li>
+<li>电缆最大长度：2500m - &gt; 250m</li>
+</ul>
+</li>
+<li>编码方式
+<ul>
+<li>10M以太网：曼彻斯特编码</li>
+<li>快速以太网：4B/5B（4bits数据被编码成5bits信号，易实现、电压平衡、效率80%）</li>
+</ul>
+</li>
+</ul>
+<h4 id="436-千兆以太网"><a class="markdownIt-Anchor" href="#436-千兆以太网"></a> 4.3.6 千兆以太网</h4>
+<ul>
+<li>千兆以太网（G比特以太网，GE）：IEEE802.3z
+<ul>
+<li>兼容10/100M以太网（同时期的两个技术FDDI、ATM不兼容）</li>
+<li>主要工作在全双工模式，若半双工，则需要CSMA/CD技术，可能带来传输距离过短的问题 -&gt; 可使用帧串、帧扩充等方法解决</li>
+<li>编码方式：8B/10B</li>
+</ul>
+</li>
+</ul>
+<h4 id="437-万兆以太网"><a class="markdownIt-Anchor" href="#437-万兆以太网"></a> 4.3.7 万兆以太网</h4>
+<h4 id="438-以太网回顾"><a class="markdownIt-Anchor" href="#438-以太网回顾"></a> 4.3.8 以太网回顾</h4>
+<h3 id="44-无线局域网"><a class="markdownIt-Anchor" href="#44-无线局域网"></a> 4.4 无线局域网</h3>
+<h4 id="441-80211体系结构和协议栈"><a class="markdownIt-Anchor" href="#441-80211体系结构和协议栈"></a> 4.4.1 802.11体系结构和协议栈</h4>
+<ul>
+<li>分布式系统（distribution system）</li>
+<li>自组织网络（ad hoc network）</li>
+<li>MAC子层决定如何分配信道，LLC子层隐藏802系列协议之间的差异，使它们在网络层看起来并无差别。</li>
+</ul>
+<h4 id="442-80211物理层"><a class="markdownIt-Anchor" href="#442-80211物理层"></a> 4.4.2 802.11物理层</h4>
+<ul>
+<li>频段：2.4GHz或5GHz</li>
+</ul>
+<h4 id="443-80211mac子层协议"><a class="markdownIt-Anchor" href="#443-80211mac子层协议"></a> 4.4.3 802.11MAC子层协议</h4>
+<ul>
+<li><mark>CSMA/CA原理</mark>：
+<ul>
+<li>带<strong>冲突避免</strong>的载波侦听多路访问协议。</li>
+<li>首先检测信道是否有使用，如果检测出信道空闲，则等待一段随机时间后，才送出数据。</li>
+<li>接收端如果正确收到此帧，则经过一段时间间隔后，向发送端发送确认帧ACK。</li>
+<li>发送端收到ACK帧，确定数据正确传输，在经历一段时间间隔后，会出现一段空闲时间。</li>
+</ul>
+</li>
+<li>隐藏站问题：
+<ul>
+<li>假设有3无线通信站ABC如下所示：<br />
+A —&gt; (B &lt;— C)<br />
+其中B在C的无线电波范围内，但A不在C的无线电波范围内。此时C正在向B传送数据，而A也试图向B传送数据。此时，A不能够监听到B正在忙，而错误的认为此时可以向B传送数据了。如果A向B传送数据，则将导致错误。此即隐藏站问题。其中C是A的隐藏站。</li>
+</ul>
+</li>
+<li>暴露站问题：
+<ul>
+<li>假设有3无线通信站ABC如下所示：<br />
+&lt;—–(A B) —&gt; C<br />
+其中B在A的无线电波范围内，但C不在A的无线电波范围内。此时A正在传送数据（向除B以外的某通信站），而B希望给C发送数据，但是错误地认为该传送过程将会失败（因为B会监听到一次传输，所以它会错误地认为此时不能向C发送数据）。此即暴露站问题。其中A是B的暴露站。</li>
+</ul>
+</li>
+<li>网络分配向量（NAV，Network Allocation Vector）：说明这个帧所属的一系列数据将传输多长时间。</li>
+</ul>
+<h4 id="444-80211帧结构"><a class="markdownIt-Anchor" href="#444-80211帧结构"></a> 4.4.4 802.11帧结构</h4>
+<ul>
+<li>三种类型的帧：数据帧、控制帧和管理帧。</li>
+<li>数据帧：
+<ul>
+<li>第一个字段是帧控制字段，包括11个子字段：协议版本、类型（比如数据帧10、控制帧01或者管理帧00）、子类型（比如RTS和CTS）、去往DS、来自DS、更多段、重传、电源管理、更多数据、受保护的、顺序。</li>
+<li>第二个字段是持续时间字段，它通告本帧和其确认帧将会占用信道多长时间，按微秒计时。</li>
+<li>接下来是地址字段，包括<strong>3个</strong>地址：<strong>接收方地址、发送方地址、远程端点</strong>。</li>
+<li>序号字段是帧的编号，可用于重复帧的检测。</li>
+<li>数据字段包含了有效载荷，长度可以达到2312字节。</li>
+<li>帧校验序列字段（CRC）。</li>
+</ul>
+</li>
+<li>管理帧的格式与数据帧的格式相同，其数据部分的的格式因子类型的不同而变。</li>
+<li>控制帧要短一些，有帧控制字段、持续时间字段、帧校验序列字段，但只有一个地址，没有数据部分，大多数关键信息都转换成子类型字段。</li>
+</ul>
+<h4 id="445-服务"><a class="markdownIt-Anchor" href="#445-服务"></a> 4.4.5 服务</h4>
+<h3 id="45-宽带无线"><a class="markdownIt-Anchor" href="#45-宽带无线"></a> 4.5 宽带无线</h3>
+<h3 id="46-蓝牙"><a class="markdownIt-Anchor" href="#46-蓝牙"></a> 4.6 蓝牙</h3>
+<h3 id="47-rfid"><a class="markdownIt-Anchor" href="#47-rfid"></a> 4.7 RFID</h3>
+<h3 id="48-数据链路层交换"><a class="markdownIt-Anchor" href="#48-数据链路层交换"></a> 4.8 数据链路层交换</h3>
+<ul>
+<li>
+<p>交换机在交换帧时的三种方式</p>
+<ul>
+<li>存储转发：交换机把整个帧接收下来，计算校验和并检查该帧无错再做策略。（延迟大、出错率小）</li>
+<li>直通交换（贯穿）：在接收时即读入目的端口转发出去。（延迟小、出错率高）</li>
+<li>无分片交换：交换时，读满64字节后才转发，不会转发碎片帧，而冲突碎片往往是小于64字节的非法短帧runt。（延迟不大、出错率不高）</li>
+</ul>
+</li>
+<li>
+<p><mark>学习网桥：</mark></p>
+<ul>
+<li>后向学习法：学习的是源地址。</li>
+<li>泛洪算法：对于每个发向未知目标地址的入境帧，网桥将它输出到所有的端口，但它来的那个输入端口除外。</li>
+<li>若目的端口与源端口相同，则丢弃该帧。</li>
+<li>若目的端口与源端口不同，则转发该帧到目的端口。</li>
+<li>若目的端口未知，则使用泛洪法，将帧送到所有的端口，除了它入境的那个。</li>
+<li>网桥可以进行协议转换。</li>
+</ul>
+</li>
+<li>
+<p><mark>生成树网桥：</mark></p>
+<ul>
+<li>生成树算法：Radia Perlman。</li>
+<li>STP，Spanning Tree Protocol，IEEE802.1D</li>
+<li>每一个网络有一个根网桥；每一个网桥有一个根端口；每一个网段有一个指定端口；剩下的非指定端口不被使用</li>
+<li>生成树算法，可在有物理回路的网络中，生成逻辑无回路的生成树，但并不能保证其中的路径最优。</li>
+<li>非指定端口虽不参与数据帧的转发，但它会侦听树的工作报文。当树上某些端口失效后，非指定端口将重新启用，形成新的生成树。</li>
+</ul>
+</li>
+<li>
+<p>物理层：repeater中继器、hub<br />
+数据链路层：Bridge、switch<br />
+网络层：Router<br />
+传输层：Transport gateway<br />
+应用层：Application gateway</p>
+</li>
+<li>
+<p>虚拟局域网</p>
+<ul>
+<li>802.1Q标准</li>
+<li>VLAN：一组逻辑上的设备或用户，不考虑地理位置。</li>
+<li>VLAN的实现：
+<ul>
+<li>基于MAC地址</li>
+<li>基于三层协议</li>
+<li>基于端口（大多数）：在交换机内部有一张VLAN成员配置表</li>
+</ul>
+</li>
+<li>VLAN成员跨越不同交换机（帧标记法）：
+<ul>
+<li>帧在通过Trunk干线起点时打上标签，干线终点拆除标签（把这个帧涂上它所在VLAN的颜色）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第五章网络层"><a class="markdownIt-Anchor" href="#第五章网络层"></a> 第五章：网络层</h2>
+<h3 id="51-网络层的设计问题"><a class="markdownIt-Anchor" href="#51-网络层的设计问题"></a> 5.1 网络层的设计问题</h3>
+<ul>
+<li>数据报网络：无连接的服务，携带目的机地址，一路查路由表。</li>
+<li>虚电路网络：面向连接的服务，不携带目的机地址，携带路径的标号，沿途路由器有带路径标号的路由表。</li>
+<li>标签交换：label switching</li>
+<li>多协议标签交换：MPLS，MultiProtocol Label Switching</li>
+</ul>
+<h3 id="52-路由算法"><a class="markdownIt-Anchor" href="#52-路由算法"></a> 5.2 路由算法</h3>
+<ul>
+<li>非自适应算法（静态路由）和自适应算法（动态路由）</li>
+<li>最优化原理：
+<ul>
+<li>如果一个路由器 J 处在路由器I到路由器K的最优路径上，那么，从路由器J到路由器K的最优路径也在同样的这条路径上。</li>
+<li>==汇集树（sink tree）：从所有的源到一个指定目标的最优路径的集合构成的一棵以目标节点为根的树。==汇聚树不唯一。路由算法的目的，为所有的路由器发现和使用汇聚树。</li>
+</ul>
+</li>
+<li><strong>距离矢量路由</strong>（distance vector routing）选择算法
+<ul>
+<li>DV是分布式Bellman-Ford路由算法，常被用于小型网络，RIP是一个典型的DV。</li>
+<li>工作原理：
+<ul>
+<li>维护：每个路由器维护两个向量，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>D</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">D_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> , <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">S_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 。</li>
+<li>交换：在邻居路由器之间交换路由信息（矢量）。</li>
+<li>更新：每个路由器根据收到的矢量信息更新自己的路由表。</li>
+</ul>
+</li>
+<li>DV 算法的特点：
+<ul>
+<li>优点：简单。</li>
+<li>缺点：交换的信息太大；路由信息传播慢，可能导致路径信息不一致；收敛慢；度量计数到无穷、路径环；不适合大型的网络。</li>
+</ul>
+</li>
+<li>可能的问题：
+<ul>
+<li>路由环路</li>
+<li>无穷计数
+<ul>
+<li>“好事传千里，坏事传得慢”。</li>
+<li>解决办法：定义最大跳数、加快收敛。</li>
+</ul>
+</li>
+<li>收敛慢
+<ul>
+<li>收敛：网络查找最佳路径的过程。</li>
+<li>收敛的加快：水平分割、毒性逆转、抑制定时器、触发更新。</li>
+</ul>
+</li>
+<li>因为站得不够高看得不够远，每个路由只从近邻拿信息，无法判断正确与否，可能学习、传播过时信息。全网不断传播错误、过时信息，无法稳定、收敛。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>链路状态路由</strong>选择算法
+<ul>
+<li>为解决DV站得不够高看得不够远的问题。</li>
+<li>算法思想：
+<ul>
+<li>发现邻居：向邻居发Hello包，等待回复了解它们的全球唯一名字。</li>
+<li>设置链路成本：到它的每个邻居的成本度量。
+<ul>
+<li>链路带宽的反比。</li>
+<li>延迟：发送ECHO包，等待回复，通过测量往返时间RTT，获得合理的延迟估计值。</li>
+</ul>
+</li>
+<li>构造链路状态包：Link State Packet，一个分组，包含发送方标识、序列号（防序列号回转问题，用32bits表示）、年龄（解决路由器崩溃和序列号损坏，每过1s，age-1，age=0则丢弃LSP）、邻居列表、到邻居的成本/度量。基于事件/时钟去触发构造。</li>
+<li>分发链路状态包：这个分组给所有其他的路由器。
+<ul>
+<li><strong>逆向路径转发</strong>：新的分组到达，若该分组是新的，被从除了来线路外的其他线路转发/泛洪出去；重复分组丢弃，过时分组拒绝。</li>
+<li>保留区：到达的分组不先处理，而是每时钟时间处理一次，期间保留区的相同分组就会被丢弃。</li>
+</ul>
+</li>
+<li>计算新路由：dijkstra到每个路由器的最短路径，最短路树。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>层次路由
+<ul>
+<li>网络规模不断增长，路由表成比例增长，消耗路由器内存。</li>
+</ul>
+</li>
+<li>广播路由</li>
+<li>组播路由</li>
+<li>选播路由</li>
+<li>移动主机路由</li>
+<li>自组织网络路由</li>
+</ul>
+<h3 id="53-拥塞控制算法"><a class="markdownIt-Anchor" href="#53-拥塞控制算法"></a> 5.3 拥塞控制算法</h3>
+<ul>
+<li>增加资源
+<ul>
+<li>在某些点之间使用更多的通道增加带宽（增加通路）</li>
+<li>把流量分散到多条路径</li>
+<li>启用空闲或备份的路由器</li>
+</ul>
+</li>
+<li>降低负载
+<ul>
+<li>拒绝为某些用户提供服务</li>
+<li>给某些用户的服务降低等级</li>
+<li>让用户更有预见性地安排他们的需求</li>
+</ul>
+</li>
+<li>网络供给</li>
+<li>流量感知路由</li>
+<li>准入控制</li>
+<li>流量限制</li>
+<li>负载脱落
+<ul>
+<li><mark>随机早期检测（RED，Random Early Detection）</mark></li>
+<li>路由器维护一个运行队列长度的平均值。当某条链路上的平均队列长度超过某个阈值时，该链路就被认为即将拥塞，因此路由器随机丢弃一小部分数据包。当没有出现期待的回复信息时，受此影响的发送方将会发现丢包，然后传输协议将放慢速度。</li>
+<li>丢失的数据包起到了传递抑制包的同样作用，但却是隐含的，无须路由器发送任何显式信号。</li>
+</ul>
+</li>
+</ul>
+<h3 id="54-服务质量"><a class="markdownIt-Anchor" href="#54-服务质量"></a> 5.4 服务质量</h3>
+<ul>
+<li><mark>四个主要参数：带宽、延迟、抖动和丢失。</mark></li>
+<li>流量整形：用户产生的流量忽大忽小，流量整形就是调节数据传输的平均速率和突发数据流，以减少突发而带来的拥塞、缓存溢出、丢包等问题。
+<ul>
+<li><mark>漏桶（Leaky Bucket）</mark>
+<ul>
+<li>每个主机连接到网络的接口中都有一个漏桶，即一个优先长度的内部队列。</li>
+<li>当桶中有分组的时候，输出速率是恒定的，当桶空的时候，输出速率是0。</li>
+<li>当一个分组到达满的桶的时候，分组将被丢弃（满则溢）。</li>
+<li>每个时钟周期tick，仅允许一个分组或固定数量的分组发送出去。</li>
+</ul>
+</li>
+<li><mark>令牌桶（Token Bucket）</mark>
+<ul>
+<li>改进了漏桶中桶满溢出的问题，桶满丢令牌而不丢分组。</li>
+<li>允许有上限的数据输出突发。</li>
+<li>令牌桶拥有令牌（tokens），且以每△T秒产生一个令牌的速度往桶中输入令牌。</li>
+<li>一个分组要发送的时候，它必要从桶中取出和获取到一个令牌。</li>
+<li>令牌桶算法允许累积令牌，但最多可以累积 n（令牌桶的容量）个令牌。</li>
+</ul>
+</li>
+<li>其他：资源预留、准入控制、分组调度等。</li>
+</ul>
+</li>
+<li>最大突发时间的计算：
+<ul>
+<li>设突发时间：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> 秒。</li>
+<li>已知，令牌桶容量 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span> 字节，令牌到达速率 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> 字节/秒，最大输出速率 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span></span></span></span> 字节/秒。</li>
+<li>得到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi><mo>+</mo><mi>R</mi><mi>S</mi><mo>=</mo><mi>M</mi><mi>S</mi></mrow><annotation encoding="application/x-tex">B+ RS = MS</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span> ，即 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>B</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>M</mi><mo>−</mo><mi>R</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">S = B/(M-R)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mclose">)</span></span></span></span> 。</li>
+</ul>
+</li>
+</ul>
+<h3 id="55-网络互联"><a class="markdownIt-Anchor" href="#55-网络互联"></a> 5.5 网络互联</h3>
+<ul>
+<li><mark>隧道技术</mark></li>
+<li>MTU（Path Maximum Transmission Unit）：路径最大传输单元</li>
+<li><strong>数据包分段</strong></li>
+</ul>
+<h3 id="56-internet的网络层"><a class="markdownIt-Anchor" href="#56-internet的网络层"></a> 5.6 Internet的网络层</h3>
+<h4 id="561-ipv4协议"><a class="markdownIt-Anchor" href="#561-ipv4协议"></a> 5.6.1 IPv4协议</h4>
+<ul>
+<li>协议版本：4位，IPv4为0100，IPv6为0110</li>
+<li><strong>报头长度（IHL）</strong>：4位，表示IP分组的头部有多长，数据范围为0101~1111，单位是 4 Byte，即最小 20 Byte，最大 60 Byte</li>
+<li>区分服务（ds，Differentiated services）：8位，表示分组的重要程度优先级等，可提供一定的服务质量保证、拥塞控制</li>
+<li><strong>总长度</strong>：16位，表示包括头部和数据的数据报总长度，单位是 1 Byte，最大为 65535 Byte</li>
+<li>标识：16位，标识当前的数据分组的序列号（由发送者来分配，接收方可通过该号码来进行重组）</li>
+<li>一个未使用的位：1位</li>
+<li>标志位：2位，决定分组是否要进行分片
+<ul>
+<li>DF（Don’t Fragment）：不分段</li>
+<li>MF（More Fragment）：更多的段</li>
+</ul>
+</li>
+<li>分段偏移量：13位，指明了该段在当前数据报中的位置。除了数据报的最后一个段外，其他所有段的长度必须是8字节的倍数。
+<ul>
+<li>每个数据报最多8192个段，由此支持总长度字段限制的最大数据报。</li>
+<li>分片后接收方可通过分片偏移进行重组。</li>
+<li>为什么要分片？分组穿越的网络 MTU (载重力)不同。</li>
+</ul>
+</li>
+<li><strong>生存时间（TTL）</strong>：8位，单位 hop，每经过一个路由器，重新封装时把TTL生存时间减1，当TTL=0时，分组被丢弃，向源发回一个超时消息。该字段可防止分组在网络中无限循环。最大的生存期为255秒。</li>
+<li><strong>用户协议</strong>：8位，指明它的上层传输层采用的协议，UDP (17)、TCP (6)。</li>
+<li>报头校验和：16位，每一跳必须重新计算头校验和，因为TTL总在不断改变。</li>
+<li>源IP地址</li>
+<li>目的IP地址</li>
+<li>数据报选项：可选、可变长的选项，长度不等，该字段允许主机支持不同的选项，比如安全、源路由、时间戳等。</li>
+<li>填充：将数据报选项字段填充到32位（4字节）的整数倍</li>
+</ul>
+<h4 id="562-ip地址"><a class="markdownIt-Anchor" href="#562-ip地址"></a> 5.6.2 IP地址</h4>
+<ul>
+<li>前缀
+<ul>
+<li>一个网络对应的一块连续的IP地址空间。</li>
+</ul>
+</li>
+<li>子网
+<ul>
+<li>IP分组如何送达子网：路由器使用子网掩码来决定分组往哪个子网转发<br />
+主路由器（边界路由器）：负责和外部联系<br />
+子网掩码：了解内部网络结构的机制
+<ul>
+<li>点分十进制：如255.255.255.224</li>
+<li>/网络位数+子网位数：如/27</li>
+<li>目的网络地址 = 目的IP地址 &amp; 子网掩码</li>
+<li>举例：131.108.2.2目的IP地址 &amp; 255.255.255.0子网掩码 = 131.108.2.0子网络地址</li>
+<li>ABC类IP地址的子网掩码分别是：/8、/16、/24<br />
+子网位由主机位借位而来，剩下的主机位中全0为网络地址、全1为广播地址，不能标识主机。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><mark>CIDR——无类域间路由</mark>
+<ul>
+<li>如果路由表中有多个表项匹配 (这些表项有不同的子网掩码) ，使用子网掩码最长（子网最小）的那个表项。</li>
+</ul>
+</li>
+<li>分类和特殊寻址
+<ul>
+<li>A类地址——大型
+<ul>
+<li>前1×8位是网络部分，后3×8位是主机部分</li>
+<li>第一字节的最高位固定为0，故第一字节取值范围为 0∼127</li>
+<li>全世界的A类地址总共只有128个</li>
+<li>每一个A类网络可容纳 2^24-2个主机</li>
+</ul>
+</li>
+<li>B类地址——中型
+<ul>
+<li>前2×8位是网络部分，后2×8位是主机部分</li>
+<li>第一字节的最高位固定为10，故第一字节取值范围为 128∼191</li>
+<li>全世界的B类地址总共只有 2^14 个</li>
+<li>每一个B类网络可容纳 2^16-2 个主机</li>
+</ul>
+</li>
+<li>C类地址——小型
+<ul>
+<li>前3×8位是网络部分，后1×8位是主机部分</li>
+<li>第一字节的最高位固定为110，故第一字节取值范围为 192∼223</li>
+<li>全世界的C类地址总共只有 2^21 个</li>
+<li>每一个C类网络可容纳 254 个主机</li>
+</ul>
+</li>
+<li>区分ABC——看第一字节值的</li>
+<li>D类：用作组播</li>
+<li>E类：用作一些科研</li>
+<li>特殊的保留地址（不分配给特定主机）：
+<ul>
+<li>网络地址：主机部分全0的地址</li>
+<li>广播地址：主机部分全1的地址</li>
+<li>0.0.0.0：指该主机、该网络，路由表中默认路由的目的地址</li>
+<li>255.255.255.255：泛洪广播地址，为防广播风暴，又退化成本地广播地址</li>
+<li>127.0.0.0：环回地址(Lookback Network)，如127.0.0.1表示本机</li>
+<li>169.254.0.0：非正常地址，不能与外部正常通信</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><mark>NAT——网络地址转换</mark>
+<ul>
+<li>NAT思想：
+<ul>
+<li>内网使用私人地址，当内网需与外网通信，私人地址转换为合法的global的IP地址</li>
+<li>NAT转换器（NAT Box），维护地址转换表</li>
+</ul>
+</li>
+<li>NAT优点：
+<ul>
+<li>节省了公有IP地址</li>
+<li>提供了内部网访问外网的灵活性</li>
+<li>有一定的保密性</li>
+</ul>
+</li>
+<li>NAT缺点：
+<ul>
+<li>违背了IP的结构模型——每个IP地址唯一地标识了一台机器</li>
+<li>将互联网改变成了“面向连接”的网络，NAT转换器维护着连接的状态，一旦它崩溃，连接也没有了</li>
+<li>违背了最基本的协议分层原则，IP是网络层，Port是传输层，跨层工作了</li>
+<li>如果传输层不是采用TCP或UDP，而是采用了其它的协议，NAT将不再工作</li>
+<li>有些应用会在payload中插入IP地址，然后接收方会提取出该IP地址并使用，但是NAT转换器对此一无所知，导致该类应用不再有效</li>
+<li>NAT让一个IP地址可以承载61,440 （65536-4096）个私人地址（超载，PAT）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><mark>ARP——地址解析协议</mark>：完成主机或者路由器从IP地址到MAC地址的映射
+<ul>
+<li>ARP思想：
+<ul>
+<li>将IP地址映射到MAC地址。</li>
+<li>向周围广播：”我是128.1.2.7，谁知道128.1.2.15的MAC地址”。</li>
+<li>128.1.2.15收到询问自己的ARP请求，才回复。</li>
+</ul>
+</li>
+<li>远程主机的MAC地址解析（跨LAN进行ARP）：
+<ul>
+<li>源将目的MAC地址填上默认网关的MAC</li>
+<li>默认网关解封装后重封装时将源、目的MAC分别变为默认网关MAC、目的机MAC</li>
+</ul>
+</li>
+<li>ARP的优化——ARP表：
+<ul>
+<li>动态建立、更新、维护ARP表</li>
+<li>机器上线/配置改变时，向周围广播免费ARP（srcIP=trgtIP），告知周边的MAC地址，不期望收到应答，若意外收到应答则表明自己的IP冲突</li>
+<li>收到源的ARP请求非目标机虽不应答，但默默记下源的MAC地址到自己的ARP表</li>
+<li>定时删除超时ARP信息</li>
+<li>静态配置ARP可以解决动态更新的病毒隐患</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第六章传输层"><a class="markdownIt-Anchor" href="#第六章传输层"></a> 第六章：传输层</h2>
+<h3 id="61-传输服务"><a class="markdownIt-Anchor" href="#61-传输服务"></a> 6.1 传输服务</h3>
+<ul>
+<li>目标：向用户提供高效的、可靠的和成本有效的数据传输服务，用于通常是应用层的进程。</li>
+<li>传输层、网络层分层原因：
+<ul>
+<li>网络层运行在由承运商操作的路由器上，用户无法真正控制到网络层，只能眼睁睁看着丢包、延迟</li>
+<li>把另一层放在网络层之上，可让用户能够控制道服务质量</li>
+<li>传输层原语独立于网络层原语，而网络层原语会因网络的不同而不同</li>
+<li>两层的作用范围不同
+<ul>
+<li>网络层负责把数据从源机送达目的机，hostToHost</li>
+<li>传输层负责把数据送到具体的应用进程，endToEnd</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据段：
+<ul>
+<li>TPDU（Transport Protocol Data Unit），传输层协议数据单元。是从传输实体发到对端传输实体的信息</li>
+<li>TPDUs 被封装在分组（packet）中，由网络层交换</li>
+<li>分组被封装在帧（frames）中，由数据链路层交换</li>
+</ul>
+</li>
+<li>传输层两大协议：
+<ul>
+<li>用户数据报协议，UDP，User Datagram Protocol</li>
+<li>传输控制协议，TCP，Transport Control Protocol</li>
+</ul>
+</li>
+</ul>
+<h3 id="62-传输协议的要素"><a class="markdownIt-Anchor" href="#62-传输协议的要素"></a> 6.2 传输协议的要素</h3>
+<h4 id="621-寻址"><a class="markdownIt-Anchor" href="#621-寻址"></a> 6.2.1 寻址</h4>
+<ul>
+<li>端口：port</li>
+<li>传输服务访问点：TSAP，Transport Service Access Point</li>
+<li>网络服务访问点：NSAP，Network Serivice Access Point，IP地址是NSAP的实例。</li>
+</ul>
+<h4 id="622-连接建立"><a class="markdownIt-Anchor" href="#622-连接建立"></a> 6.2.2 连接建立</h4>
+<ul>
+<li><mark>三次握手</mark>
+<ul>
+<li>(1)客户发送第一个报文，这是一个SYN报文，在这个报文中只有SYN标志置为1。这个报文的作用是使序号同步。</li>
+<li>(2)服务器发送第二个报文，即SYN+ACK报文，其中SYN和ACK标志被置为1。这个报文有两个目的。首先，它是一个用来和对方进行通信的SYN报文。服务器使用这个报文同步初始序号，以便从服务器向客户发送字节。服务器还使用ACK标志确认已从客户端收到了SYN报文，同时给出期望从客户端收到的下一个序号。另外，服务器还定义了客户端要使用的接收窗口的大小。</li>
+<li>(3)客户发送第三个报文。这仅仅是一个ACK报文。它使用ACK标志和确认号字段来确认收到了第二个报文。</li>
+</ul>
+</li>
+</ul>
+<h4 id="623-连接释放"><a class="markdownIt-Anchor" href="#623-连接释放"></a> 6.2.3 连接释放</h4>
+<ul>
+<li>非对称释放</li>
+<li>对称释放</li>
+<li><mark>三次挥手</mark>
+<ul>
+<li>(1)当客户端想关闭TCP连接时，它发送一个TCP报文，把FIN标志位设置为1。</li>
+<li>(2)服务器端在收到这个TCP报文后，把TCP连接即将关闭的消息发送给相应的进程，并发送第二个报文——FIN+ACK报文，以证实从客户端收到了FIN报文，同时也说明，另一个方向的连接也关闭了。</li>
+<li>(3)客户端发送最后一个报文以证实从TCP服务器收到了FIN报文。这个报文包括确认号，它等于从服务器收到的FIN报文的序号加1。</li>
+</ul>
+</li>
+</ul>
+<h4 id="624-差错控制和流量控制"><a class="markdownIt-Anchor" href="#624-差错控制和流量控制"></a> 6.2.4 差错控制和流量控制</h4>
+<h4 id="625-多路复用"><a class="markdownIt-Anchor" href="#625-多路复用"></a> 6.2.5 多路复用</h4>
+<h4 id="626-崩溃恢复"><a class="markdownIt-Anchor" href="#626-崩溃恢复"></a> 6.2.6 崩溃恢复</h4>
+<h3 id="63-拥塞控制"><a class="markdownIt-Anchor" href="#63-拥塞控制"></a> 6.3 拥塞控制</h3>
+<ul>
+<li>AIMD（Additive Increase Multiplicative Decrease）：加法递增乘法递减</li>
+</ul>
+<h3 id="64-internet传输协议udp"><a class="markdownIt-Anchor" href="#64-internet传输协议udp"></a> 6.4 Internet传输协议：UDP</h3>
+<ul>
+<li>UDP数据段头——头部（8字节）+数据：
+<ul>
+<li>头部第1字段，源端口，16bits</li>
+<li>头部第2字段，目的端口，16bits</li>
+<li>头部第3字段，UDP长度，表示包括头部（8字节）和数据共多少字节，16bits 范围：8~65515</li>
+<li>头部第4字段，校验和，可选(不选择填0)，16bits，校验头部、数据、IP伪头
+<ul>
+<li>IP伪头：源地址、目的地址、UDP协议号、UDP段（包括头）的字节计数。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>端口Port：
+<ul>
+<li>16位，0~65535</li>
+<li>&lt; 1023，知名端口，用于公共应用（保留，全局分配，用于标准服务器），IANA分配</li>
+<li>1024-49151，非特权用户端口，注册端口，比如BT使用6881-6887</li>
+<li>≥ 49152，动态端口，私人端口</li>
+<li>自由端口 free port
+<ul>
+<li>本地分配、动态随机端口</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>远程过程调用（RPC，Remote Procedure Call）</li>
+<li>RTP（Real-time Transport Protocol）：实时传输协议</li>
+<li>RTCP（Real-time Transport Control Protocol）：实时传输控制协议</li>
+</ul>
+<h3 id="65-internet传输协议tcp"><a class="markdownIt-Anchor" href="#65-internet传输协议tcp"></a> 6.5 Internet传输协议：TCP</h3>
+<ul>
+<li>
+<p>格式：</p>
+<ul>
+<li>head，20字节的头部（去掉可选项）。</li>
+<li>Options，变长的数据字段/域（可是0个或更多字节）。</li>
+<li>Data</li>
+<li>头部第1字段，源端口，16bits。</li>
+<li>头部第2字段，目的端口，16bits。</li>
+<li>头部第3字段，序列号，表示一个字节的编号，32bits。
+<ul>
+<li>ISNs(initial sequence numbers)：初始序列号，是随机产生的。</li>
+<li>SYN：携带了ISNs 和SYN 控制位的数据段。</li>
+</ul>
+</li>
+<li>头部第4字段，确认号，表示期望对方发来的字节的编号，32bits。
+<ul>
+<li>TCP的可靠传输保证，采用肯定确认机制和累计确认技术。</li>
+<li>如确认号是500，表示收到了发方发送的499、498…等字节。下次我就可以发500序列号的字节过去了。</li>
+</ul>
+</li>
+<li>头部第5字段，TCP段头长度，单位是4字节，4bits。</li>
+<li>下一字段是保留字段，现在逐步启用做拥塞控制。</li>
+<li>头部第6、7、8、9、10、11字段，控制比特，URG、ACK、PSH、RST、SYN、FIN，各1bit。
+<ul>
+<li>URG：当紧急指针使用的时候，URG 被置为1，表明有紧急数据，必须先处理。</li>
+<li>ACK：等于1表示确认号有效，启用了捎带确认，等于0表示确认号无效。</li>
+<li>PSH：表示这是带有PUSH标志的数据，接收方收到这样的数据，应该立刻送到上层，而不需要缓存它。</li>
+<li>RST：被用来重置一个已经混乱的连接。如果在连接建立阶段，就直接拒绝建立连接。</li>
+<li>SYN：用在连接建立过程中。与ACK配合使用可以表示连接请求(SYN=1,ACK=0)或连接接收(SYN=1,ACK=1)。</li>
+<li>FIN：被用来释放连接，表示发送方已经没有数据要传输，但可继续接收数据。</li>
+</ul>
+</li>
+<li>头部第12字段，窗口尺寸，告诉对方可以发送的数据字节数，即从确认字节号开始，连续发送的字节总数，16bits。
+<ul>
+<li>为避免接收方被大量涌入的数据所淹没，TCP实体进行了流量控制，用可变长的滑动窗口来完成，这个窗口尺寸的大小取决于接收方。</li>
+</ul>
+</li>
+<li>头部第13字段，校验和，16bits。</li>
+<li>头部第14字段，紧急指针，与URG控制位配合使用，16bits。
+<ul>
+<li>紧急指针是一个对于当前序列号的字节偏移量，标明紧急数据从哪里开始。</li>
+</ul>
+</li>
+<li>Options，选项域，提供了一种增加基本头没有包含内容的方法。</li>
+</ul>
+</li>
+<li>
+<p><strong>TCP连接的建立</strong></p>
+<ul>
+<li>Host1发送连接请求，控制位SYN=1, ACK=0。SEQ=x，x是随机产生的初始序列号。</li>
+<li>Host2接收后，回答，控制位SYN=1, ACK=1。SEQ=y，y是随机产生的初始序列号，ACK Number=x+1，表示对x之前的字节都确认收到。</li>
+<li>Host1接收应答，回发最后的确认，控制位SYN=0, ACK=1。SEQ=x+1，ACK Number=y+1，表示对y之前的字节确认收到。</li>
+</ul>
+</li>
+<li>
+<p><strong>TCP连接的释放</strong></p>
+<ul>
+<li>任何一方没数据要发送时，都可发送一个FIN置位的TCP数据段。</li>
+<li>当FIN被确认时，该方式的连接被关闭。</li>
+<li>当双向连接都关闭后，连接释放。</li>
+</ul>
+<p>TCP连接的释放是对称，要求两方的释放请求都被确认，而一次只能确认一个，这有一些问题，解决方案是把释放连接的决定权交给请求者：</p>
+<ul>
+<li>一方发送 连接释放请求DR（Disconnect Request），并期待对方的确认ACK。</li>
+<li>DR到达接收端，它回发ACK，并且也发送一个DR。</li>
+<li>ACK到达发送端，连接释放；同时回发确认ACK，当这个ACK到达接收端，反方向的连接也释放。</li>
+</ul>
+<p>采用定时器：</p>
+<ul>
+<li>避免DR、ACK丢失而引发的问题，在任何时候发出DR的同时，都启动一个定时器。</li>
+<li>如果一方发送了FIN置位的DR数据段出去，若在定时器超时都没收到应答，释放连接。</li>
+<li>另一方最终也会注意到连接的对方已不在，即定时器超时后连接释放。</li>
+</ul>
+<p>杀死半开放连接：</p>
+<ul>
+<li>半开放连接：最初的DR及其重传都丢失了的话，发送者因超时放弃继续发送且释放连接，但另一端却不知道这些情况仍处于活跃的状态。</li>
+<li>杀死方式：在一定时间内没有TPDUs到达则单方面自动释放；同时利用定时器，超时时自动发一个哑TPDU（dummy TPDU），避免被对方释放。</li>
+</ul>
+</li>
+<li>
+<p>TCP传输策略：</p>
+<ul>
+<li>类似LLC，TCP链路传输，采用了基本的肯定确认重传机制。</li>
+<li>使用Window Size字段进行流量控制：</li>
+<li>当窗口数为0时，发送者不能正常发送数据段，除非：
+<ul>
+<li>Urgent紧急数据。比如用户想杀掉远端机器上的进程时</li>
+<li>发送者可发送一个字节的数据段，以便让接受者再次发送(期待接收的字节号或ACK, WIN)，以免死锁</li>
+</ul>
+</li>
+<li>优化接收端，不要急着回复确认
+<ul>
+<li>接收端推迟500ms发送确认分组和窗口更新，以便可免费搭载在处理后的回显分组内（free ride便车）</li>
+</ul>
+</li>
+<li>优化发送端——Nagle’s Algorithm
+<ul>
+<li>当数据以一次一字节的速度到达的时候，只发送第一个字节，然后将后续的字节缓存起来，直到发出的字节得到确认；<br />
+将缓存起来的字节在一个数据段中发出，再继续缓存，直到发出的数据得到确认。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>傻瓜窗口综合征：</p>
+<ul>
+<li>silly window syndrome problem</li>
+<li>当有大块数据被传递给发送端TCP实体，但接收端的交互式应用每次只读取一个字节的时候，往返发送的有效信息大小与代价相差甚远。</li>
+<li>解决方案——Clark解决方案
+<ul>
+<li>阻止接收方发送只有1个字节的窗口更新，相反，它必须等待一段时间，当有了一定数量的空间之后再告诉发送方。</li>
+<li>接收方可以可以维护一个内部缓冲，且阻塞上层应用的READ 请求，直到它有大块的数据提供。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>发送方和接收方的优化：</p>
+<ul>
+<li>发送方，Nagle’s Algorithm。尽量不发送数据含量小的数据段；缓存应用层数据到一定量才发送。</li>
+<li>接收方，Clark’s Solution。不请求对方发送短数据段(Window Size)；延迟窗口变更信息，使接收缓冲区足够大。</li>
+</ul>
+</li>
+<li>
+<p>TCP拥塞控制</p>
+<p>虽然网络层也管理拥塞，但大多数管理任务由TCP完成。</p>
+<p>因为针对拥塞的真正解决方案是减慢数据率，所以TCP拥塞控制遵循分组守恒原则，即老分组离开后新分组才注入网络。</p>
+<p>拥塞检测：</p>
+<ul>
+<li>Congestion Detection</li>
+<li>所有的互联网TCP算法都假定超时是由于拥塞引起的，并通过监视超时的情况来判断是否出现问题。</li>
+</ul>
+<p>拥塞控制：</p>
+<ul>
+<li>Congestion Control</li>
+<li>当一个连接建立的时候，双方选择一个合适的窗口大小，接收方根据自己的缓冲区大小来指定窗口的大小。</li>
+<li>若发送者遵循这窗口大小的限制，则接收端不会出现缓冲区溢出的问题，但可能由于网络内部的拥塞而发生问题。</li>
+</ul>
+<p>拥塞的两种情形：</p>
+<ul>
+<li>接收方容量不足，比如快速的网络向小容量接收方传输数据。</li>
+<li>网络容量瓶颈，比如慢速的网络向大容量的接收方传输数据。</li>
+</ul>
+<p>拥塞控制：</p>
+<ul>
+<li>针对拥塞的两种情形，单独解决问题。</li>
+<li>发送者维护两个窗口：
+<ul>
+<li>流量控制窗口，反映了目前接收者的处理能力（容易获取）。</li>
+<li>拥塞窗口cwnd，反映了目前网络容量（难以获取），也就是发送端可以往网络发送的字节数。</li>
+<li>发送数据大小 = 上述两个窗口的较小值</li>
+</ul>
+</li>
+</ul>
+<p><mark>慢启动算法Slow Start</mark>：</p>
+<ul>
+<li>获取拥塞窗口大小。</li>
+<li>指数的增长：连接建立时，发送者用当前使用的最大数据段长度MaxSeqL初始化拥塞窗口，然后发送一个最大的数据段，若在定时器超时前得到确认，则将拥塞窗口翻倍，发送两个数据段，直到超时。</li>
+<li>线性的增长：采用阈值参数，初始为64K，拥塞窗口增长到阈值时，就停止指数增长，按照线性增长，即每次成功的传输让拥塞窗口增加一个最大的数据段长度。<br />
+当超时发生时，阈值降为当前拥塞窗口的一半，同时将拥塞窗口重设为一个最大的数据段的长度，重新开启新一次的慢启动。</li>
+<li>下图，一开始阈值Threshold=32k，当指数增长到阈值时改为线性增长，在第14次发送时超时，阈值设为拥塞窗口的一半20k，且发送窗口重置为一个数据段大小，重新开启新一次的慢启动。</li>
+<li>线性增长，可将窗口尝试粒度变小，以获得更准确的拥塞窗口值。</li>
+<li>TCP慢启动算法就是这样不断超时、不断重启，尝试出的拥塞窗口值也随之网络状况变化而变化，达到拥塞控制的目的。</li>
+<li>快速恢复：重新慢启动时，拥塞窗口值可以不重置为一个数据段大小，而是设置为阈值大小，从这里开始直接线性增长。</li>
+</ul>
+</li>
+<li>
+<p>TCP定时器等</p>
+<p>TCP采用肯定确认重传技术，保证每一个字节的可靠传输。</p>
+<p>重传定时器：</p>
+<ul>
+<li>retransmission timer</li>
+<li>为了解决数据段丢失的问题，每发一个数据段都会启动一个重传定时器。</li>
+<li>其时间设置需要良好的考量，设置过长则等待过长，设置过短引发频繁超时重传。</li>
+</ul>
+<p>持续定时器：</p>
+<ul>
+<li>persistence timer</li>
+<li>用来避免以下死锁deadlock发生。
+<ul>
+<li>接收方发送了一个窗口数为零的确认（窗口更新），告诉发送方等待。<br />
+稍后，接收方空出了缓冲，发送更新窗口的数据段，但是该分组丢失啦！<br />
+现在，收发双方都在等待对方发送数据段过来，但永远等不到，死锁产生。</li>
+</ul>
+</li>
+<li>发送方在收到win=0时，启动一个持续定时器，如果定时器超时没有收到更新窗口，则发送一个探测数据段，引发对方重新发出更新窗口。</li>
+</ul>
+<p>保活定时器：</p>
+<ul>
+<li>keep-alive timer</li>
+<li>用来检查连接是否存活，当一个连接空闲的时间超过保活定时器的时间，该连接将被杀掉。</li>
+</ul>
+<p>在关闭时刻处于TIMED WAIT状态中使用的定时器：</p>
+<ul>
+<li>运行两倍的最大分组生存时间，以确保连接关闭之后，该连接上的所有分组都完全消失。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第七章应用层"><a class="markdownIt-Anchor" href="#第七章应用层"></a> 第七章：应用层</h2>
+<h3 id="71-dns"><a class="markdownIt-Anchor" href="#71-dns"></a> 7.1 DNS</h3>
+<ul>
+<li>原理：
+<ul>
+<li>1.应用程序以域名作为参数调用解析器。</li>
+<li>2.解析器发送UDP分组给本地DNS服务器。</li>
+<li>3.如果待查询域名在该DNS服务器的管辖范围内或存在缓存则返回资源记录给解析器。</li>
+<li>4.反之则本地DNS服务器向根域名服务器发送一条查询此域的迭代查询请求。</li>
+<li>5.根域名服务器会返回所查询域的IP地址或者本地DNS服务器下一步应该向之查询的域名服务器地址。</li>
+<li>6.本地域名服务器向正确的域名服务器查询到IP后返回给解析器。同时缓存查询过的域名服务器地址。</li>
+</ul>
+</li>
+</ul>
+<h3 id="72-邮件"><a class="markdownIt-Anchor" href="#72-邮件"></a> 7.2 邮件</h3>
+<ul>
+<li>协议：SMTP、POP</li>
+</ul>
+<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
+<ul>
+<li>
+<p>《计算机网络》第五版 严伟 潘爱民 译</p>
+</li>
+<li>
+<p>tt学长的笔记：<a target="_blank" rel="noopener" href="https://zhangt.top/CS/Computer-Network-Study-Notes">https://zhangt.top/CS/Computer-Network-Study-Notes</a></p>
+</li>
+<li>
+<p>MOOC华南理工大学《计算机网络》by 袁华：<a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/SCUT-1002700002?tid=1463162477#/learn/announce">https://www.icourse163.org/learn/SCUT-1002700002?tid=1463162477#/learn/announce</a></p>
+</li>
+<li>
+<p>2019王道考研计算机网络：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19E411D78Q?from=search&amp;seid=5912359002984844436">https://www.bilibili.com/video/BV19E411D78Q?from=search&amp;seid=5912359002984844436</a></p>
+</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>计算机网络</p><p><a href="https://tongyiheng.github.io/2021/06/13/CS/ComputerNetworks/">https://tongyiheng.github.io/2021/06/13/CS/ComputerNetworks/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>TongYiheng</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-06-13</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-09-15</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Computer-Networks/">Computer Networks</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=606d9ca4caff460011c58b12&amp;product=sop" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/img/wechatpay.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/09/07/Embedded/MySQL%E7%BC%93%E5%86%B2%E6%B1%A0%E8%AE%BE%E8%AE%A1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">MySQL Buffer Pool Design</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/03/20/Configure/vscode/"><span class="level-item">Visual Studio Code环境配置和使用技巧</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread' ,
+            appId: "nUmwvAMIK3DjqBzyQlGQ429s-gzGzoHsz",
+            appKey: "9jYGXFAbgktDDeSOnOKsDbyt",
+            
+            avatar: "robohash",
+            avatarForce: true,
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "zh-CN",
+            
+            highlight: true,
+            
+            
+            
+            
+            enableQQ: true,
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpg" alt="TongYiheng"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">TongYiheng</p><p class="is-size-6 is-block">Trust Your Trust</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>QingDao,China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">17</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/tongyiheng" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/tongyiheng"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget is-sticky" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#computer-networks"><span class="level-left"><span class="level-item">1</span><span class="level-item"> Computer Networks</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#第一章引言"><span class="level-left"><span class="level-item">1.1</span><span class="level-item"> 第一章：引言</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#11-名词解释"><span class="level-left"><span class="level-item">1.1.1</span><span class="level-item"> 1.1 名词解释</span></span></a></li></ul></li><li><a class="level is-mobile" href="#第二章物理层"><span class="level-left"><span class="level-item">1.2</span><span class="level-item"> 第二章：物理层</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#21-数据通信的理论基础"><span class="level-left"><span class="level-item">1.2.1</span><span class="level-item"> 2.1 数据通信的理论基础</span></span></a></li><li><a class="level is-mobile" href="#22-引导性传输介质"><span class="level-left"><span class="level-item">1.2.2</span><span class="level-item"> 2.2 引导性传输介质</span></span></a></li><li><a class="level is-mobile" href="#23-无线传输"><span class="level-left"><span class="level-item">1.2.3</span><span class="level-item"> 2.3 无线传输</span></span></a></li><li><a class="level is-mobile" href="#24-通信卫星"><span class="level-left"><span class="level-item">1.2.4</span><span class="level-item"> 2.4 通信卫星</span></span></a></li><li><a class="level is-mobile" href="#25-数字调制与多路复用"><span class="level-left"><span class="level-item">1.2.5</span><span class="level-item"> 2.5 数字调制与多路复用</span></span></a></li><li><a class="level is-mobile" href="#26-公共电话交换网络"><span class="level-left"><span class="level-item">1.2.6</span><span class="level-item"> 2.6 公共电话交换网络</span></span></a></li></ul></li><li><a class="level is-mobile" href="#第三章数据链路层"><span class="level-left"><span class="level-item">1.3</span><span class="level-item"> 第三章：数据链路层</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#31-数据链路层的设计问题"><span class="level-left"><span class="level-item">1.3.1</span><span class="level-item"> 3.1 数据链路层的设计问题</span></span></a></li><li><a class="level is-mobile" href="#32-差错检测和纠正"><span class="level-left"><span class="level-item">1.3.2</span><span class="level-item"> 3.2 差错检测和纠正</span></span></a></li><li><a class="level is-mobile" href="#33-基本数据链路层协议"><span class="level-left"><span class="level-item">1.3.3</span><span class="level-item"> 3.3 基本数据链路层协议</span></span></a></li><li><a class="level is-mobile" href="#34-滑动窗口协议"><span class="level-left"><span class="level-item">1.3.4</span><span class="level-item"> 3.4 滑动窗口协议</span></span></a></li></ul></li><li><a class="level is-mobile" href="#第四章介质访问控制子层"><span class="level-left"><span class="level-item">1.4</span><span class="level-item"> 第四章：介质访问控制子层</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#41-信道分配问题"><span class="level-left"><span class="level-item">1.4.1</span><span class="level-item"> 4.1 信道分配问题</span></span></a></li><li><a class="level is-mobile" href="#42-多路访问协议"><span class="level-left"><span class="level-item">1.4.2</span><span class="level-item"> 4.2 多路访问协议</span></span></a></li><li><a class="level is-mobile" href="#43-以太网"><span class="level-left"><span class="level-item">1.4.3</span><span class="level-item"> 4.3 以太网</span></span></a></li><li><a class="level is-mobile" href="#44-无线局域网"><span class="level-left"><span class="level-item">1.4.4</span><span class="level-item"> 4.4 无线局域网</span></span></a></li><li><a class="level is-mobile" href="#45-宽带无线"><span class="level-left"><span class="level-item">1.4.5</span><span class="level-item"> 4.5 宽带无线</span></span></a></li><li><a class="level is-mobile" href="#46-蓝牙"><span class="level-left"><span class="level-item">1.4.6</span><span class="level-item"> 4.6 蓝牙</span></span></a></li><li><a class="level is-mobile" href="#47-rfid"><span class="level-left"><span class="level-item">1.4.7</span><span class="level-item"> 4.7 RFID</span></span></a></li><li><a class="level is-mobile" href="#48-数据链路层交换"><span class="level-left"><span class="level-item">1.4.8</span><span class="level-item"> 4.8 数据链路层交换</span></span></a></li></ul></li><li><a class="level is-mobile" href="#第五章网络层"><span class="level-left"><span class="level-item">1.5</span><span class="level-item"> 第五章：网络层</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#51-网络层的设计问题"><span class="level-left"><span class="level-item">1.5.1</span><span class="level-item"> 5.1 网络层的设计问题</span></span></a></li><li><a class="level is-mobile" href="#52-路由算法"><span class="level-left"><span class="level-item">1.5.2</span><span class="level-item"> 5.2 路由算法</span></span></a></li><li><a class="level is-mobile" href="#53-拥塞控制算法"><span class="level-left"><span class="level-item">1.5.3</span><span class="level-item"> 5.3 拥塞控制算法</span></span></a></li><li><a class="level is-mobile" href="#54-服务质量"><span class="level-left"><span class="level-item">1.5.4</span><span class="level-item"> 5.4 服务质量</span></span></a></li><li><a class="level is-mobile" href="#55-网络互联"><span class="level-left"><span class="level-item">1.5.5</span><span class="level-item"> 5.5 网络互联</span></span></a></li><li><a class="level is-mobile" href="#56-internet的网络层"><span class="level-left"><span class="level-item">1.5.6</span><span class="level-item"> 5.6 Internet的网络层</span></span></a></li></ul></li><li><a class="level is-mobile" href="#第六章传输层"><span class="level-left"><span class="level-item">1.6</span><span class="level-item"> 第六章：传输层</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#61-传输服务"><span class="level-left"><span class="level-item">1.6.1</span><span class="level-item"> 6.1 传输服务</span></span></a></li><li><a class="level is-mobile" href="#62-传输协议的要素"><span class="level-left"><span class="level-item">1.6.2</span><span class="level-item"> 6.2 传输协议的要素</span></span></a></li><li><a class="level is-mobile" href="#63-拥塞控制"><span class="level-left"><span class="level-item">1.6.3</span><span class="level-item"> 6.3 拥塞控制</span></span></a></li><li><a class="level is-mobile" href="#64-internet传输协议udp"><span class="level-left"><span class="level-item">1.6.4</span><span class="level-item"> 6.4 Internet传输协议：UDP</span></span></a></li><li><a class="level is-mobile" href="#65-internet传输协议tcp"><span class="level-left"><span class="level-item">1.6.5</span><span class="level-item"> 6.5 Internet传输协议：TCP</span></span></a></li></ul></li><li><a class="level is-mobile" href="#第七章应用层"><span class="level-left"><span class="level-item">1.7</span><span class="level-item"> 第七章：应用层</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#71-dns"><span class="level-left"><span class="level-item">1.7.1</span><span class="level-item"> 7.1 DNS</span></span></a></li><li><a class="level is-mobile" href="#72-邮件"><span class="level-left"><span class="level-item">1.7.2</span><span class="level-item"> 7.2 邮件</span></span></a></li></ul></li><li><a class="level is-mobile" href="#reference"><span class="level-left"><span class="level-item">1.8</span><span class="level-item"> Reference</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="TongYiheng&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2021 TongYiheng</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/TongYiheng/TongYiheng.github.io"><i class="fab fa-github"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Email" href="mailto:yihengtong@outlook.com"><i class="fa fa-envelope"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
