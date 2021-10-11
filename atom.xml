@@ -6,7 +6,7 @@
   <link href="https://tongyiheng.github.io/atom.xml" rel="self"/>
   
   <link href="https://tongyiheng.github.io/"/>
-  <updated>2021-09-27T10:59:18.631Z</updated>
+  <updated>2021-10-11T02:14:02.908Z</updated>
   <id>https://tongyiheng.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>void</title>
+    <link href="https://tongyiheng.github.io/2021/10/11/Tricks/void/"/>
+    <id>https://tongyiheng.github.io/2021/10/11/Tricks/void/</id>
+    <published>2021-10-11T02:09:14.000Z</published>
+    <updated>2021-10-11T02:14:02.908Z</updated>
+    
+    <content type="html"><![CDATA[<p>Have you ever seen “(void)val;” in codes ?</p><span id="more"></span><h3 id="why-voidval"><a class="markdownIt-Anchor" href="#why-voidval"></a> Why <code>(void)val;</code></h3><p>作用是避免编译器警告。如果声明/定义了但未使用的变量，在编译时会生成warning。如果项目里打开了-Werror选项，会将warning视为error，这样的话无法通过编译，所以需要用这种方法绕过无关紧要的warning。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Have you ever seen “(void)val;” in codes ?&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Tricks" scheme="https://tongyiheng.github.io/categories/Tricks/"/>
+    
+    
+    <category term="c++" scheme="https://tongyiheng.github.io/tags/c/"/>
+    
+  </entry>
   
   <entry>
     <title>ffmpeg</title>
