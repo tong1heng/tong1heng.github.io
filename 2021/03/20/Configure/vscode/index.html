@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Visual Studio Code环境配置和使用技巧 - TongYiheng&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="TongYiheng&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="TongYiheng&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="This is different from most blogs and videos about the configuration for vscode and it takes only 2 minutes starting from zero."><meta property="og:type" content="blog"><meta property="og:title" content="Visual Studio Code环境配置和使用技巧"><meta property="og:url" content="https://tongyiheng.github.io/2021/03/20/Configure/vscode/"><meta property="og:site_name" content="TongYiheng&#039;s Blog"><meta property="og:description" content="This is different from most blogs and videos about the configuration for vscode and it takes only 2 minutes starting from zero."><meta property="og:locale" content="en_US"><meta property="og:image" content="https://tongyiheng.github.io/images/cover/vscode.png"><meta property="article:published_time" content="2021-03-20T12:21:35.000Z"><meta property="article:modified_time" content="2021-10-15T06:01:19.373Z"><meta property="article:author" content="TongYiheng"><meta property="article:tag" content="Visual Studio Code"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/images/cover/vscode.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://tongyiheng.github.io/2021/03/20/Configure/vscode/"},"headline":"Visual Studio Code环境配置和使用技巧","image":["https://tongyiheng.github.io/images/cover/vscode.png"],"datePublished":"2021-03-20T12:21:35.000Z","dateModified":"2021-10-15T06:01:19.373Z","author":{"@type":"Person","name":"TongYiheng"},"description":"This is different from most blogs and videos about the configuration for vscode and it takes only 2 minutes starting from zero."}</script><link rel="canonical" href="https://tongyiheng.github.io/2021/03/20/Configure/vscode/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="TongYiheng's Blog" type="application/atom+xml">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="TongYiheng&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/TongYiheng/TongYiheng.github.io"><i class="fab fa-github"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Email" href="mailto:yihengtong@outlook.com"><i class="fa fa-envelope"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/images/cover/vscode.png" alt="Visual Studio Code环境配置和使用技巧"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-20T12:21:35.000Z" title="2021-3-20 8:21:35 ├F10: PM┤">2021-03-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-10-15T06:01:19.373Z" title="2021-10-15 2:01:19 ├F10: PM┤">2021-10-15</time></span><span class="level-item"><a class="link-muted" href="/categories/Configure/">Configure</a></span><span class="level-item">8 minutes read (About 1196 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">Visual Studio Code环境配置和使用技巧</h1><div class="content"><p>This is different from most blogs and videos about the configuration for vscode and it takes only 2 minutes starting from zero.</p>
+<span id="more"></span>
+<h2 id="overview"><a class="markdownIt-Anchor" href="#overview"></a> Overview</h2>
+<p>无数的博客和视频都在讲怎么配置vscode的环境，但99%都会教你怎么copy他们在用的json文件，解释一大通有的没的，不是说json文件的含义不重要，只是作为一个beginner关注点不在这里，而是我怎么配才能跑出来一个<code>Hello World</code>。横向对比不同博客提供的json文件，你会发现千差万别，然后开始怀疑到底谁的json文件是对的或者纠结到底用谁的…<br />
+这篇博客不会摆长篇的json文件让你copy，而是让你通过vscode的选项生成json文件，以最快的速度能够在vscode中run code successfully，最后根据自己的需要修改一些json文件的配置选项。<br />
+Windows:下载mingw，添加环境变量，然后在文件夹下新建测试文件，点击运行和调试，在弹出的窗口中直接选择gcc或g<ins>即可自动生成json文件。<br />
+Linux:打开Terminal通过<code>sudo apt install</code>安装gcc和g</ins>，然后在文件夹下新建测试文件，点击运行和调试，在弹出的窗口中直接选择gcc或g++即可自动生成json文件。</p>
+<h2 id="windows"><a class="markdownIt-Anchor" href="#windows"></a> Windows</h2>
+<h3 id="step1-下载mingw"><a class="markdownIt-Anchor" href="#step1-下载mingw"></a> Step1: 下载MinGW</h3>
+<p>官网下载地址:  <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/">MinGW-w64 - for 32 and 64 bit Windows</a></p>
+<p><img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210605.png" alt="1" /></p>
+<p><img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210606.png" alt="2" /></p>
+<p>不同版本区别如下：<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210607.png" alt="3" /></p>
+<p>这里建议选择x86_64-posix-sehz。下载后，解压到自己常用的软件安装路径下，这里以D盘为例。<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210608.png" alt="4" /></p>
+<h3 id="step2-添加环境变量"><a class="markdownIt-Anchor" href="#step2-添加环境变量"></a> Step2: 添加环境变量</h3>
+<p>1.以windows10为例，右键此电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量。<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210609.png" alt="5" /></p>
+<p>2.找到系统变量下的Path，点击编辑，新建，将bin目录的路径复制即可。<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210610.png" alt="6" /><br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210611.png" alt="7" /><br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210612.png" alt="8" /></p>
+<h3 id="step3-生成json文件"><a class="markdownIt-Anchor" href="#step3-生成json文件"></a> Step3: 生成json文件</h3>
+<p>1.打开vscode，选择或新建一个空文件夹目录打开作为项目目录。<br />
+2.新建<code>test.cpp</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Hello world!\n&quot;</span>;</span><br><span class="line">    <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.<code>Ctrl+F5</code>以非调试模式运行<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/202110151325422.png" alt="9" /><br />
+4.选择C++(GDB/LLDB)<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/202110151327232.png" alt="10" /><br />
+5.选择g++.exe<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/202110151331621.png" alt="11" /><br />
+点击终端，已经正常运行显示结果。</p>
+<h3 id="step4-运行和调试"><a class="markdownIt-Anchor" href="#step4-运行和调试"></a> Step4: 运行和调试</h3>
+<p><img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210613.png" alt="12" /></p>
+<p>launch.json文件中的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;externalConsole&quot;: false, &#x2F;&#x2F; 调试时是否显示控制台窗口，true使用控制台（小黑框），false使用内置终端  </span><br></pre></td></tr></table></figure>
+<p>若使用控制台，需要在main函数return之前暂停一下，否则小黑框会一闪而过，可以使用stdlib.h库中的system(“pause”)，也可简单地使用getchar()。<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210615.png" alt="13" /><br />
+若使用内置终端，则会直接在内置的终端输出。<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210614.png" alt="14" /></p>
+<p>调试过程与其他IDE类似，略。</p>
+<p><strong>Hint</strong>: 使用freopen重定向输入输出流，可以不用每次都复制一遍输入，或者无法辨别某个数据是输入还是输出（不方便比对正确结果）。<br />
+Demo:<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210616.png" alt="15" /></p>
+<h3 id="插件推荐"><a class="markdownIt-Anchor" href="#插件推荐"></a> 插件推荐</h3>
+<p>1.Code Runner<br />
+安装后即可直接运行代码，使用内置终端。一些设置如下：<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210617.png" alt="16" /><br />
+<strong>Warning</strong>: 一定要将“<strong>Run In Terminal</strong>”的选项勾上，否则运行之后你找不到任何地方可以输入数据！</p>
+<p>2.Theme<br />
+Light: Atom one light, Night Owl Light, GitHub Light.<br />
+Dark: One Dark Pro, Dark+.</p>
+<p>3.Icon: Material Icon Theme.</p>
+<p>4.filesize: 统计文件大小。</p>
+<p>5.gitlens: 方便用git。</p>
+<h2 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h2>
+<p>略<br />
+真的是非常easy啊！毕竟，一个连虚拟机或者双系统都拥有的人难道还不会配vscode吗？</p>
+<h2 id="update"><a class="markdownIt-Anchor" href="#update"></a> Update</h2>
+<p>1.2021-03-27: C<ins>17标准不支持#include&lt;bits/stdc</ins>.h&gt;，编译时会报一长串错误，C<ins>14标准支持，如果想使用这个头文件，可以在json文件中将C</ins>标准改为C++14。终于解决了一个困扰已久的问题。<br />
+2.2021-04-23：vscode-cpptools占用C盘空间过大问题<br />
+vscode-cpptools中是为了加速cpp编译的预编译文件，默认为5120MB约为5G，可以改为512MB（给vscode个面子）或者0（我觉得不过分）。<br />
+<img src="https://gitee.com/yihengtong/figurebed/raw/master/vscode/20210627210618.png" alt="14" /><br />
+点击文件-&gt;首选项-&gt;设置-&gt;搜索C_Cpp.intelliSenseCacheSize-&gt;设置大小</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Visual Studio Code环境配置和使用技巧</p><p><a href="https://tongyiheng.github.io/2021/03/20/Configure/vscode/">https://tongyiheng.github.io/2021/03/20/Configure/vscode/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>TongYiheng</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-03-20</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-10-15</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Visual-Studio-Code/">Visual Studio Code</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=606d9ca4caff460011c58b12&amp;product=sop" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/img/wechatpay.png" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2021/04/20/Secret/JingYing/lunch-meeting-1st/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Lunch Meeting（一）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/12/23/CS/DSA/DSA_12/"><span class="level-item">DSA：（十二）图</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread' ,
+            appId: "nUmwvAMIK3DjqBzyQlGQ429s-gzGzoHsz",
+            appKey: "9jYGXFAbgktDDeSOnOKsDbyt",
+            
+            avatar: "robohash",
+            avatarForce: true,
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "zh-CN",
+            
+            highlight: true,
+            
+            
+            
+            
+            enableQQ: true,
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpg" alt="TongYiheng"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">TongYiheng</p><p class="is-size-6 is-block">Trust Your Trust</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>QingDao,China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">21</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">23</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/tongyiheng" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/tongyiheng"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget is-sticky" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#overview"><span class="level-left"><span class="level-item">1</span><span class="level-item"> Overview</span></span></a></li><li><a class="level is-mobile" href="#windows"><span class="level-left"><span class="level-item">2</span><span class="level-item"> Windows</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#step1-下载mingw"><span class="level-left"><span class="level-item">2.1</span><span class="level-item"> Step1: 下载MinGW</span></span></a></li><li><a class="level is-mobile" href="#step2-添加环境变量"><span class="level-left"><span class="level-item">2.2</span><span class="level-item"> Step2: 添加环境变量</span></span></a></li><li><a class="level is-mobile" href="#step3-生成json文件"><span class="level-left"><span class="level-item">2.3</span><span class="level-item"> Step3: 生成json文件</span></span></a></li><li><a class="level is-mobile" href="#step4-运行和调试"><span class="level-left"><span class="level-item">2.4</span><span class="level-item"> Step4: 运行和调试</span></span></a></li><li><a class="level is-mobile" href="#插件推荐"><span class="level-left"><span class="level-item">2.5</span><span class="level-item"> 插件推荐</span></span></a></li></ul></li><li><a class="level is-mobile" href="#linux"><span class="level-left"><span class="level-item">3</span><span class="level-item"> Linux</span></span></a></li><li><a class="level is-mobile" href="#update"><span class="level-left"><span class="level-item">4</span><span class="level-item"> Update</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="TongYiheng&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2021 TongYiheng</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/TongYiheng/TongYiheng.github.io"><i class="fab fa-github"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Email" href="mailto:yihengtong@outlook.com"><i class="fa fa-envelope"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
