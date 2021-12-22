@@ -6,7 +6,7 @@
   <link href="https://tongyiheng.top/atom.xml" rel="self"/>
   
   <link href="https://tongyiheng.top/"/>
-  <updated>2021-12-22T09:20:53.548Z</updated>
+  <updated>2021-12-22T13:49:32.912Z</updated>
   <id>https://tongyiheng.top/</id>
   
   <author>
@@ -21,8 +21,19 @@
     <link href="https://tongyiheng.top/2021/12/22/CS/OperatingSystem/"/>
     <id>https://tongyiheng.top/2021/12/22/CS/OperatingSystem/</id>
     <published>2021-12-22T09:18:42.000Z</published>
-    <updated>2021-12-22T09:20:53.548Z</updated>
+    <updated>2021-12-22T13:49:32.912Z</updated>
     
+    <content type="html"><![CDATA[<h3 id="概念"><a class="markdownIt-Anchor" href="#概念"></a> 概念</h3><ul><li><mark>Thread</mark></li></ul><p><img src="https://gitee.com/yihengtong/figurebed/raw/master/OperatingSystem/202112222045087.png" alt="" /></p><ul><li><p><mark>Race Condition</mark>: 多个进程并发访问和操作同一数据并且执行结果与访问发生的特定顺序有关，称为竞争条件。</p><p><img src="https://gitee.com/yihengtong/figurebed/raw/master/OperatingSystem/202112222052185.png" alt="" /></p></li><li><p><mark>RAID</mark>: 磁盘冗余阵列，用于处理磁盘的性能与可靠性问题。其基本思想就是把多个相对便宜的硬盘组合起来，成为一个硬盘阵列组，使性能达到甚至超过一个价格昂贵、容量巨大的硬盘。根据选择的版本不同，RAID 比单硬盘有以下好处：增强数据集成度，增强容错功能，增加处理量或容量。另外，磁盘阵列对于计算机来说，看起来就像一个单独的硬盘或逻辑存储单元。简单来说，RAID 把多个硬盘组合成为一个逻辑扇区，因此，操作系统只会把它当作一个硬盘。RAID 常被用在服务器计算机上，并且常使用完全相同的硬盘作为组合。</p></li><li><p><mark>Device Driver</mark>: 设备驱动程序，是一个允许高级计算机软件与硬件交互的程序，这种程序创建了一个硬件与硬件，或硬件与软件沟通的接口，经由主板上的总线或其它沟通子系统与硬件形成连接的机制，这样的机制使得硬件设备上的数据交换成为可能，使得操作系统能够控制硬件设备。<strong>设备驱动程序为内核I/O子系统隐藏设备控制器之间的差异。</strong></p><p><img src="https://gitee.com/yihengtong/figurebed/raw/master/OperatingSystem/202112222106134.png" alt="" /></p></li><li><p><mark>System Call</mark>: 系统调用，运行在使用者空间的程序向操作系统内核请求需要更高权限运行的服务。 系统调用提供了用户程序与操作系统之间的接口。大多数系统交互式操作需求在内核态执行。<strong>系统调用把应用程序的请求传给内核，调用相应的内核函数完成所需的处理，将处理结果返回给应用程序。</strong></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;概念&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概念&quot;&gt;&lt;/a&gt; 概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;mark&gt;Thread&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://gitee.com/yihe</summary>
+      
     
     
     
@@ -54,9 +65,9 @@
     <category term="KV store" scheme="https://tongyiheng.top/categories/Embedded/KV-store/"/>
     
     
-    <category term="cpp" scheme="https://tongyiheng.top/tags/cpp/"/>
-    
     <category term="RocksDB" scheme="https://tongyiheng.top/tags/RocksDB/"/>
+    
+    <category term="cpp" scheme="https://tongyiheng.top/tags/cpp/"/>
     
     <category term="compression" scheme="https://tongyiheng.top/tags/compression/"/>
     
@@ -148,9 +159,9 @@
     <category term="KV store" scheme="https://tongyiheng.top/categories/Embedded/KV-store/"/>
     
     
-    <category term="cpp" scheme="https://tongyiheng.top/tags/cpp/"/>
-    
     <category term="RocksDB" scheme="https://tongyiheng.top/tags/RocksDB/"/>
+    
+    <category term="cpp" scheme="https://tongyiheng.top/tags/cpp/"/>
     
     <category term="compaction" scheme="https://tongyiheng.top/tags/compaction/"/>
     
