@@ -269,10 +269,10 @@
   
   <entry>
     <title>数据结构</title>
-    <link href="https://tongyiheng.top/2020/12/31/CS/DataStructure/"/>
-    <id>https://tongyiheng.top/2020/12/31/CS/DataStructure/</id>
+    <link href="https://tongyiheng.top/2020/12/31/CS/DataStructures/"/>
+    <id>https://tongyiheng.top/2020/12/31/CS/DataStructures/</id>
     <published>2020-12-31T13:13:36.000Z</published>
-    <updated>2021-11-17T13:32:16.644Z</updated>
+    <updated>2022-01-03T11:34:58.067Z</updated>
     
     <content type="html"><![CDATA[<p>Revision notes of the course “<strong>Data Structure</strong>”</p><span id="more"></span><p><mark>不在实验中的章节：</mark></p><ol><li>跳表</li><li>AVL树 B树 HBLT树</li></ol><p><mark>要记的东西：</mark></p><ol><li>chain的复制构造函数，析构函数</li><li>稀疏矩阵的操作</li><li>栈在表达式计算的应用</li><li>散列的课后题、删除操作</li><li>链表散列和线性探查的平均性能公式</li></ol>]]></content>
     
@@ -283,7 +283,7 @@
     
     <category term="Computer Science" scheme="https://tongyiheng.top/categories/Computer-Science/"/>
     
-    <category term="Data Structure" scheme="https://tongyiheng.top/categories/Computer-Science/Data-Structure/"/>
+    <category term="Data Structures" scheme="https://tongyiheng.top/categories/Computer-Science/Data-Structures/"/>
     
     
     <category term="data structure" scheme="https://tongyiheng.top/tags/data-structure/"/>
