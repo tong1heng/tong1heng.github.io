@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>DFS Techniques - Avocado Pear</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Avocado Pear"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Avocado Pear"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Introduce two key techniques of distributed file system."><meta property="og:type" content="blog"><meta property="og:title" content="DFS Techniques"><meta property="og:url" content="https://tongyiheng.top/2022/03/29/Embedded/dfs-techniques/"><meta property="og:site_name" content="Avocado Pear"><meta property="og:description" content="Introduce two key techniques of distributed file system."><meta property="og:locale" content="en_US"><meta property="og:image" content="https://tongyiheng.top/images/cover/distributed.webp"><meta property="article:published_time" content="2022-03-29T11:14:02.000Z"><meta property="article:modified_time" content="2022-03-29T15:31:49.144Z"><meta property="article:author" content="TongYiheng"><meta property="article:tag" content="distributed"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/images/cover/distributed.webp"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://tongyiheng.top/2022/03/29/Embedded/dfs-techniques/"},"headline":"DFS Techniques","image":["https://tongyiheng.top/images/cover/distributed.webp"],"datePublished":"2022-03-29T11:14:02.000Z","dateModified":"2022-03-29T15:31:49.144Z","author":{"@type":"Person","name":"TongYiheng"},"publisher":{"@type":"Organization","name":"Avocado Pear","logo":{"@type":"ImageObject","url":"https://tongyiheng.top/img/logo.svg"}},"description":"Introduce two key techniques of distributed file system."}</script><link rel="canonical" href="https://tongyiheng.top/2022/03/29/Embedded/dfs-techniques/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="Avocado Pear" type="application/atom+xml">
+</head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Avocado Pear" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a><a class="navbar-item" href="/gallery">Gallery</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/TongYiheng/TongYiheng.github.io"><i class="fab fa-github"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Email" href="mailto:yihengtong@outlook.com"><i class="fa fa-envelope"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/images/cover/distributed.webp" alt="DFS Techniques"></span></div><article class="card-content article" role="article"><h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal"><i class="fas fa-angle-double-right"></i>DFS Techniques</h1><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><i class="far fa-calendar-alt"> </i><time dateTime="2022-03-29T11:14:02.000Z" title="2022-03-29T11:14:02.000Z">2022-03-29</time></span><span class="level-item is-hidden-mobile"><i class="far fa-calendar-check"> </i><time dateTime="2022-03-29T15:31:49.144Z" title="2022-03-29T15:31:49.144Z">2022-03-29</time></span><span class="level-item"><i class="far fa-folder-open has-text-grey"></i> <a class="link-muted" href="/categories/Embedded/">Embedded</a></span><span class="level-item"><i class="far fa-clock"></i> 8 minutes read (About 1231 words)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><p>Introduce two key techniques of distributed file system.</p>
+<span id="more"></span>
+<center><embed src="/slides/dfs-techniques.pdf" width="850" height="600"></center>
+<h2 id="speech"><a class="markdownIt-Anchor" href="#speech"></a> Speech</h2>
+<p>下面我来给大家介绍分布式文件系统中另外两个核心技术。</p>
+<ul>
+<li>
+<p>首先是Scalability&amp;Usability也就是DFS的可扩展性和可用性。</p>
+<ol>
+<li>高可用的metadata
+<ul>
+<li>DFS的metadata主要包括文件的命名空间、每个文件不同副本的位置、副本的的版本号等等。</li>
+<li>在DFS中，metadata的存储主要有两种方式，一种是集中存储，把所有的元数据都存在一个metadata server，统一管理所有的元数据；另一种是将metadata分布到多个节点进行存储。这两种方式相比，集中存储更常用，将元数据和数据分离，整个系统拥有较高的吞吐量，便于实现。</li>
+<li>以GFS为例，GFS的metadata主要包括三部分内容：<strong>命名空间、文件到chunk的映射关系、chunk的位置。</strong> 元数据存在唯一的GFS master中，文件按chunk进行划分，每个chunk的大小为64MB，每一个chunk会在多个chunk server中保存副本（默认为3个），chunk server将chunk作为Linux file保存在本地磁盘上。</li>
+<li>如何根据metadata进行读操作：
+<ul>
+<li>应用程序调用GFS client提供的接口，表明要读取的文件名、偏移、长度。</li>
+<li>GFS Client将偏移按照规则翻译成chunk序号，发送给master。</li>
+<li>master将chunk id与chunk的副本位置告诉GFS client。</li>
+<li>GFS client向最近的持有副本的Chunkserver发出读请求，请求中包含chunk id与范围。</li>
+<li>ChunkServer读取相应的文件，然后将文件内容发给GFS client。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Namespace delegation<br />
+DFS的命名空间主要是指DFS对文件目录的统一管理。分布式文件系统中，需要考虑并发在同一个目录下创建文件的情况。为了防止冲突，使用锁机制保证对命名空间的互斥访问。
+<ul>
+<li>锁分为读锁和写锁，分别对应读操作和写操作。</li>
+<li>e.g.
+<ul>
+<li>如果对 /d1/d2/…/dn/leaf 进行操作</li>
+<li>需要获得 /d1, /d1/d2, /d1/d2/…/dn 的读锁</li>
+<li>需要 /d1/d2/…/dn/leaf 的读锁或者写锁</li>
+</ul>
+</li>
+<li>通过命名空间锁可以允许在相同目录发生并发的变化。比如多个文件在同一个目录被并发创建，每个创建会申请此目录的读锁和各自文件的写锁，不会导致冲突。目录的读锁可以保护在创建时此目录不会被删除、重命名或者执行快照。对相同文件的创建请求，由于写锁的保护，也只会导致此文件被串行的创建两次。因为命名空间的节点不少，全量分配读写锁有点浪费资源，所以它们都是lazy分配、用完即删。而且锁申请不是随意的，为了防止死锁，一个操作必须按特定的顺序来申请锁：首先按命名空间树的层级排序，在相同层级再按字典序。</li>
+</ul>
+</li>
+<li>可扩展性<br />
+DFS有很强的可扩展性，需要注意的问题：
+<ul>
+<li>如何控制不同server之间的负载均衡</li>
+<li>如何保证新加入的节点不会因短期负载压力过大而崩溃</li>
+<li>如何更新元数据</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>然后是Fault-tolerance也就是容错性，DFS通过多副本机制保证容错性，副本之间要保证一致性。</p>
+<ol>
+<li>Checkpointing—metadata的崩溃一致性：metadata存在master的内存中，operation log记录重要的元数据变化的历史信息，是metadata的持久化记录，我们将它重复存在多个远程机器上，直到日志记录被flush到本地磁盘以及远程机器之后才会回复客户端。</li>
+<li>Leases—租赁机制：保证数据修改时的一致性。
+<ul>
+<li>由master指定primary replica和secondary replicas，60s后过期重新指定。</li>
+<li>写操作流程：
+<ul>
+<li>Client向master请求Chunk的副本信息，以及哪个副本（Replica）是Primary</li>
+<li>master回复client，client缓存这些信息在本地</li>
+<li>client将数据（Data）链式推送到所有副本</li>
+<li>Client通知Primary提交</li>
+<li>primary在自己成功提交后，通知所有Secondary提交</li>
+<li>Secondary向Primary回复提交结果</li>
+<li>primary回复client提交结果</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data的一致性：
+<ul>
+<li>两种状态：Consistency和defined，目的是在所有的replicas的执行相同的串行化操作序列保证file region的defined。</li>
+<li>Handshake检测故障停机</li>
+<li>Checksum检测数据可靠性</li>
+<li>Version控制数据一致性</li>
+<li>返回哪个副本给Client</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>DFS Techniques</p><p><a href="https://tongyiheng.top/2022/03/29/Embedded/dfs-techniques/">https://tongyiheng.top/2022/03/29/Embedded/dfs-techniques/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>TongYiheng</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-03-29</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-03-29</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i> </a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i> </a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i> </a></p></div></div></div></div></div><hr style="height:1px;margin:1rem 0"><div class="level is-mobile is-flex"><div class="article-tags is-size-7 is-uppercase"><i class="fas fa-tags has-text-grey"></i> <a class="link-muted" rel="tag" href="/tags/distributed/">distributed </a></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=606d9ca4caff460011c58b12&amp;product=sop" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/img/wechatpay.png" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/03/11/Embedded/ICDE21-huang/"><span class="level-item">Less is More-De-amplifying I/Os for Key-value Stores with a Log-assisted LSM-tree</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="content" id="valine-thread"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script><script>new Valine({
+            el: '#valine-thread',
+            appId: "nUmwvAMIK3DjqBzyQlGQ429s-gzGzoHsz",
+            appKey: "9jYGXFAbgktDDeSOnOKsDbyt",
+            
+            avatar: "robohash",
+            avatarForce: true,
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            lang: "zh-CN",
+            visitor: false,
+            highlight: true,
+            recordIP: false,
+            
+            
+            
+            enableQQ: true,
+            requiredFields: [],
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level" style="margin-bottom:1rem"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-96x96 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpg" alt="TongYiheng"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">TongYiheng</p><p class="is-size-6 is-block">Trust Your Trust</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>QingDao,China</span></p></div></div></nav><nav class="level menu-list is-mobile" style="margin-bottom:1rem"><a class="level-item has-text-centered is-marginless" href="/archives/"><div><p class="heading">Posts</p><div><p class="title">28</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/categories/"><div><p class="heading">Categories</p><div><p class="title">12</p></div></div></a><a class="level-item has-text-centered is-marginless" href="/tags/"><div><p class="heading">Tags</p><div><p class="title">28</p></div></div></a></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/tongyiheng" target="_blank" rel="noopener"><i class="fab fa-github"></i>  Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/tongyiheng"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#speech"><span class="level-left"><span class="level-item">1</span><span class="level-item"> Speech</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Avocado Pear" height="28"></a><p class="is-size-7"><span>&copy; 2022 TongYiheng</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-nc"></i> <i class="fab fa-creative-commons-sa"></i> </a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/TongYiheng/TongYiheng.github.io"><i class="fab fa-github"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Email" href="mailto:yihengtong@outlook.com"><i class="fa fa-envelope"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
