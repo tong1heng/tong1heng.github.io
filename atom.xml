@@ -84,9 +84,9 @@
     <link href="https://tongyiheng.top/2022/04/16/Embedded/TKDE21-SwapKV/"/>
     <id>https://tongyiheng.top/2022/04/16/Embedded/TKDE21-SwapKV/</id>
     <published>2022-04-16T13:58:20.000Z</published>
-    <updated>2022-11-14T07:41:08.346Z</updated>
+    <updated>2023-03-19T11:49:45.239Z</updated>
     
-    <content type="html"><![CDATA[<p>This paper presents SwapKV, which strives to retain both the advantages of DRAM and PMEM, aiming to achieve both high performance and large capacity simultaneously.</p><span id="more"></span><center><embed src="/slides/SwapKV-TKDE21.pdf" width="850" height="600"></center>]]></content>
+    <content type="html"><![CDATA[<p>This paper presents SwapKV, which strives to retain both the advantages of DRAM and PMEM, aiming to achieve both high performance and large capacity simultaneously.</p><span id="more"></span><center><embed src="/slides/TKDE21-SwapKV.pdf" width="850" height="600"></center>]]></content>
     
     
     <summary type="html">&lt;p&gt;This paper presents SwapKV, which strives to retain both the advantages of DRAM and PMEM, aiming to achieve both high performance and large capacity simultaneously.&lt;/p&gt;</summary>
